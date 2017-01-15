@@ -1,22 +1,22 @@
 import { css, after, before } from 'glamor';
 import { threeDText } from '../mixins';
 import { yellow, purple } from '../color';
+import { brandon } from '../typefaces';
 
 export const alpha = css(
+	brandon,
 	{
 		display: 'inline-block',
-		fontSize: '6em',
-		fontFamily: 'brandon-grotesque',
+		fontSize: '5em',
 		textTransform: 'uppercase',
-		textAlign: 'center',
-		fontWeight: '800',
-		fontStyle: 'italic',
 		letterSpacing: '0.05em',
+		textAlign: 'center',
 		color: purple,
 		position: 'relative',
 		padding: '0.5em',
 		textShadow: threeDText(yellow, 10),
-		whiteSpace: 'nowrap'
+		whiteSpace: 'nowrap',
+		marginBottom: "1em"
 	},
 	after({
 		top: 'calc(50% - 0.1em)',
@@ -44,6 +44,42 @@ export const alpha = css(
 	})
 );
 
+export const beta = css(
+	brandon,
+	{
+		fontSize: '3em',
+	}
+)
+
+export const gamma = css(
+	brandon,
+	{
+		fontSize: '2em',
+	}
+)
+
+export const delta = css(
+	brandon,
+	{
+		fontSize: '1.6em',
+	}
+)
+
+export const epsilon = css(
+	brandon,
+	{
+		fontSize: '1em',
+	}
+)
+
+export const zeta = css(
+	brandon,
+	{
+		fontSize: '0.6em',
+	}
+)
+
 export const copy = css({
-	fontFamily: 'Pinopolis-Regular'
+	fontFamily: 'Pinopolis-Regular',
+	lineHeight: 1.4
 })
