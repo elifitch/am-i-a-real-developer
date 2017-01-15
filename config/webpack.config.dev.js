@@ -164,7 +164,10 @@ module.exports = {
       }
     ]
   },
-  
+  sassLoader: {
+    // includePaths: [path.resolve(__dirname, "../node_modules/foundation-sites/scss")]
+    includePaths: [paths.foundation]
+  },
   // We use PostCSS for autoprefixing only.
   postcss: function() {
     return [

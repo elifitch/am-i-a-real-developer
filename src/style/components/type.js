@@ -14,8 +14,9 @@ export const alpha = css(
 		letterSpacing: '0.05em',
 		color: purple,
 		position: 'relative',
-		padding: '0.2em',
+		padding: '0.5em',
 		textShadow: threeDText(yellow, 10),
+		whiteSpace: 'nowrap'
 	},
 	after({
 		top: 'calc(50% - 0.1em)',
@@ -42,3 +43,7 @@ export const alpha = css(
 		borderRadius: '0.04em'
 	})
 );
+
+export const copy = css({
+	fontFamily: 'Pinopolis-Regular'
+})

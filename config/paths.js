@@ -41,5 +41,6 @@ module.exports = {
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
+  foundation: resolveApp('node_modules/foundation-sites/scss'),
   nodePaths: nodePaths
 };

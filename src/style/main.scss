@@ -1,2 +1,11 @@
 @import "./_reset";
+@import "./_settings";
 @import "./_base";
+@import "foundation";
+
+@include foundation-flex-grid;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
+
+@import "./_utilities";
