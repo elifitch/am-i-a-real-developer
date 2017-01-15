@@ -26,14 +26,14 @@ const button = css(
 );
 
 export function Button({
-	content,
-	onClick
+	onClick,
+	children
 }) {
 	return (
 		<button
 		className={ button }
 		onClick={ onClick }>
-			{ content }
+			{ children }
 		</button>
 	);
 }
