@@ -25,26 +25,30 @@ export function Slide({
 		? 
 		children
 		: 
-		<div>
-			<h2 className={ beta }>{ title }</h2>
-			<p className={ copy }>{ question }</p>
-			<Button
-				onClick={ () => advance(true) }
-			>
-				Yes
-			</Button>
-			<Button
-				onClick={ () => advance(false) }
-			>
-				No
-			</Button>
+		<div className="row align-center">
+			<div className="column small-12 large-6">
+				<h2 className={ beta }>{ title }</h2>
+				<p className={ `${copy} u-text-left u-inline-block` }>{ question }</p>
+				<div>
+					<Button
+						onClick={ () => advance(true) }
+					>
+						Yes
+					</Button>
+					<Button
+						onClick={ () => advance(false) }
+					>
+						No
+					</Button>
+				</div>
+			</div>
 		</div>
 
 
 	return(
 		<div className={ slides__slide }>
 			<div className="u-full-width">
-				<div className="row">
+				<div className="row align-center">
 					<div className="column small-12 u-text-center">
 						{ content }
 					</div>
