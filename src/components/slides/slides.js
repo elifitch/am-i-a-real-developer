@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { css } from 'glamor';
-import { alpha } from '../../style/components/type';
+import { alpha, copy } from '../../style/components/type';
 import { Button } from '../button/button';
 import { Slide } from './slide';
 
@@ -12,7 +12,7 @@ import { Slide } from './slide';
 // 	left: "50%",
 // 	transform: "translate(-50%, -50%)"
 // });
-const SLIDE_COUNT = 2;
+const SLIDE_COUNT = 3;
 
 const slides = css({
 	height: "100vh",
@@ -20,19 +20,6 @@ const slides = css({
 	overflow: "hidden"
 });
 
-// let slides__carrier = css({
-// 	transition: "all 1s",
-// 	transform: `translateY(0%)`
-// });
-
-// const translation = (SLIDE_COUNT / this.slide) * 100;
-// const translation = 100 / (SLIDE_COUNT / this.slide);
-
-// const slides__slide = css({
-// 	height: "100vh",
-// 	width: "100vw",
-// 	position: "relative"
-// });
 let slides__carrier = css({
 	transition: "all 1s",
 	transform: `translateY(0%)`
@@ -72,6 +59,13 @@ export class Slides extends Component {
 				<div className={ slides__carrier }>
 					<Slide>
 						<h1 className={ alpha }>Am I a Real<br/>Developer?</h1>
+						<div className="row align-center">
+							<div className="column large-6 u-text-left">
+								<p className={ copy }>
+									Sick of folks insinuating that you're not engineery enough?<br/>That you're not a "real" developer? Take the quiz and find out.
+								</p>
+							</div>
+						</div>
 						<div>
 							<Button
 								onClick={ () => this.advance(true) }
@@ -79,6 +73,13 @@ export class Slides extends Component {
 								Take the Quiz
 							</Button>
 						</div>
+					</Slide>
+
+					<Slide
+						advance={ () => this.advance(true) }
+						title={"first quesiont"}
+						question={"lorem borem florem torum"}
+					>
 					</Slide>
 
 					<Slide

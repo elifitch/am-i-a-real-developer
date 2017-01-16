@@ -43,9 +43,11 @@ export function Slide({
 
 	return(
 		<div className={ slides__slide }>
-			<div className="row">
-				<div className="column small-12 u-text-center">
-					{ content }
+			<div className="u-full-width">
+				<div className="row">
+					<div className="column small-12 u-text-center">
+						{ content }
+					</div>
 				</div>
 			</div>
 		</div>

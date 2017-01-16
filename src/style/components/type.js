@@ -16,7 +16,7 @@ export const alpha = css(
 		padding: '0.5em',
 		textShadow: threeDText(yellow, 10),
 		whiteSpace: 'nowrap',
-		marginBottom: "1em"
+		marginBottom: "calc(1.5rem + 0.1em + 0.1em)"
 	},
 	after({
 		top: 'calc(50% - 0.1em)',
@@ -83,5 +83,5 @@ export const zeta = css(
 export const copy = css({
 	fontFamily: 'Pinopolis-Regular',
 	lineHeight: 1.4,
-	marginBottom: "0.5em"
+	marginBottom: "1.5rem"
 })
