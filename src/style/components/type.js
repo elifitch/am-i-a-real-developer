@@ -48,6 +48,7 @@ export const beta = css(
 	brandon,
 	{
 		fontSize: '3em',
+		marginBottom: '0.5em'
 	}
 )
 
@@ -81,5 +82,6 @@ export const zeta = css(
 
 export const copy = css({
 	fontFamily: 'Pinopolis-Regular',
-	lineHeight: 1.4
+	lineHeight: 1.4,
+	marginBottom: "0.5em"
 })

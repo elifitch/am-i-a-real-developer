@@ -1,8 +1,7 @@
 import React from 'react';
 import { css } from 'glamor';
 // import { threeDText } from '../mixins';
-import { purple, yellow, lightGray } from '../../style/color';
-import tinycolor from 'tinycolor2';
+import { purple } from '../../style/color';
 import { beta } from "../../style/components/type";
 
 const footer = css({

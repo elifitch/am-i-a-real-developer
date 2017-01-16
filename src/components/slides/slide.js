@@ -2,20 +2,16 @@ import React from 'react';
 import { css } from 'glamor';
 import { beta, copy } from '../../style/components/type';
 import { Button } from '../button/button';
+// import { yellow } from '../../style/color';
 
 const slides__slide = css({
 	height: "100vh",
 	width: "100vw",
-	position: "relative"
-});
-
-const center = css({
-	display: "inline-flex",
+	position: "relative",
+	display: "flex",
 	flexDirection: "column",
-	position: "absolute",
-	top: "50%",
-	left: "50%",
-	transform: "translate(-50%, -50%)"
+	alignItems: "center",
+	justifyContent: "center"
 });
 
 
@@ -25,18 +21,31 @@ export function Slide({
 	children,
 	advance
 }) {
-	return(
-		
+	const content = children 
+		? 
+		children
+		: 
+		<div>
+			<h2 className={ beta }>{ title }</h2>
+			<p className={ copy }>{ question }</p>
+			<Button
+				onClick={ () => advance(true) }
+			>
+				Yes
+			</Button>
+			<Button
+				onClick={ () => advance(false) }
+			>
+				No
+			</Button>
+		</div>
 
+
+	return(
 		<div className={ slides__slide }>
 			<div className="row">
 				<div className="column small-12 u-text-center">
-					<div className={ center }>
-						<h2 className={ beta }>{ title }</h2>
-						<p className={ copy }>{ question }</p>
-						<Button>gerpo0</Button>
-						{ children }
-					</div>
+					{ content }
 				</div>
 			</div>
 		</div>

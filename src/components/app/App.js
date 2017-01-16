@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
 import { css } from 'glamor';
-import { alpha, copy } from '../../style/components/type';
 import { GlobalStyles } from '../../style/global-style';
 
 import { Footer } from '../footer/footer';
-import { Button } from '../button/button';
 import { Slides } from '../slides/slides';
 
 const vignette = css({
@@ -27,9 +25,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Slides
-					foo={"asdf"}
-				/>
+				<Slides/>
 
 				<Footer/>
 				<div className={ vignette }></div>
