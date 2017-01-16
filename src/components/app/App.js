@@ -25,7 +25,9 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Slides/>
+				<Slides
+					slideIndex={ 0 }
+				/>
 
 				<Footer/>
 				<div className={ vignette }></div>

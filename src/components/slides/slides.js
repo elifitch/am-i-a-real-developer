@@ -12,6 +12,7 @@ import { Slide } from './slide';
 // 	left: "50%",
 // 	transform: "translate(-50%, -50%)"
 // });
+const SLIDE_COUNT = 2;
 
 const slides = css({
 	height: "100vh",
@@ -19,25 +20,50 @@ const slides = css({
 	overflow: "hidden"
 });
 
-const slides__carrier = css({
-	transition: "all 1s"
-});
+// let slides__carrier = css({
+// 	transition: "all 1s",
+// 	transform: `translateY(0%)`
+// });
+
+// const translation = (SLIDE_COUNT / this.slide) * 100;
+// const translation = 100 / (SLIDE_COUNT / this.slide);
 
 // const slides__slide = css({
 // 	height: "100vh",
 // 	width: "100vw",
 // 	position: "relative"
 // });
+let slides__carrier = css({
+	transition: "all 1s",
+	transform: `translateY(0%)`
+});
 
 export class Slides extends Component {
 	constructor(props) {
-		super();
-		this.slide = 1;
+		super(props);
+		// this.slide = 0;
+		this.state = {
+			slide: 0
+		}
+	}
+	shouldComponentUpdate() {
+		console.log('should');
+		return true;
 	}
 
 	advance(bool) {
-		console.log(this.slide);
+		const nextSlide = this.state.slide + 1;
 
+		const translation = -(100 / (SLIDE_COUNT / nextSlide));
+		slides__carrier = css({
+			transition: "all 1s",
+			transform: `translateY(${translation}%)`
+		});
+
+		const newState = {
+			slide: nextSlide
+		};
+		this.setState(newState);
 	}
 
 	render() {
