@@ -21,21 +21,23 @@ let slides__translation = css({
 
 const questionList = [
 	{
-		title: "# 1",
 		question: "Do you write code?"
 	},
 	{
-		title: "# 2",
-		question: "Do you make software?"
-	},
-	{
-		title: "# 3",
 		question: "Do you create websites?"
 	},
 	{
-		title: "# 4",
+		question: "Are you a chemical that is used to develop photographs?"
+	},
+	{
 		question: "Are you a person or company that builds and sells houses or other buildings on a piece of land?"
-	}
+	},
+	{
+		question: "Are you a person who lays out at full size the lines of a ship or vessel and prepares templates from them?"
+	},
+	{
+		question: "Do you make software?"
+	},
 ];
 
 export class Slides extends Component {
@@ -87,7 +89,7 @@ export class Slides extends Component {
 			questionSlides.push(
 				<Slide
 					advance={ self.advance }
-					title={question.title}
+					title={`# ${index + 1}`}
 					question={question.question}
 				>
 				</Slide>
@@ -104,9 +106,9 @@ export class Slides extends Component {
 				<Slide>
 					<h1 className={ alpha }>Am I a Real<br/>Developer?</h1>
 					<div className="row align-center">
-						<div className="column large-6 u-text-left">
+						<div className="column small-10 medium-8 large-6 u-text-left">
 							<p className={ copy }>
-								Sick of folks saying that you're not engineery enough?<br/>That you're not a "real" developer? Take the quiz and find out.
+								Sick of folks saying that you're not engineery enough? That you're not a "real" developer? Take the quiz and find out.
 							</p>
 						</div>
 					</div>

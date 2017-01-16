@@ -1,8 +1,10 @@
 import React from 'react';
 import { css } from 'glamor';
-// import { threeDText } from '../mixins';
+// import { mq } from '../../style/mixins';
 import { purple } from '../../style/color';
 import { beta } from "../../style/components/type";
+
+// const medium = mq("medium");
 
 const footer = css({
 	position: "absolute",
@@ -12,8 +14,17 @@ const footer = css({
 	paddingTop: "2rem",
 	paddingBottom: "2rem",
 	textAlign: "center",
-	color: "rgba(0,0,0,0.1)"
+	color: "rgba(0,0,0,0.1)",
+	fontSize: "0.6em",
+	// medium: {
+	// 	color: "red"
+	// },
+	'@media screen and (min-width: 640px)': {
+		fontSize: "1em"
+	}
 });
+
+console.log(footer);
 
 const footer__link = css({
 	'transition': 'color 0.2s',

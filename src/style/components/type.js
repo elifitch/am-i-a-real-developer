@@ -7,16 +7,20 @@ export const alpha = css(
 	brandon,
 	{
 		display: 'inline-block',
-		fontSize: '5em',
+		fontSize: '2em',
 		textTransform: 'uppercase',
 		letterSpacing: '0.05em',
 		textAlign: 'center',
 		color: purple,
 		position: 'relative',
 		padding: '0.5em',
-		textShadow: threeDText(yellow, 10),
+		textShadow: threeDText(yellow, 3),
 		whiteSpace: 'nowrap',
-		marginBottom: "calc(1.5rem + 0.1em + 0.1em)"
+		marginBottom: "calc(1.5rem + 0.1em + 0.1em)",
+		"@media screen and (min-width: 640px)": {
+			fontSize: '5em',
+			textShadow: threeDText(yellow, 10)
+		}
 	},
 	after({
 		top: 'calc(50% - 0.1em)',
