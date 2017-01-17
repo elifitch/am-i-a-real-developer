@@ -76,7 +76,7 @@ export class Slides extends Component {
 			}
 
 			const nextSlide = this.state.slide + 1;
-			const translation = -(100 / ((questionList.length+1) / nextSlide));
+			const translation = -(100 / ((questionList.length+2) / nextSlide));
 			slides__translation = css({
 				transform: `translateY(${translation}%)`
 			});
