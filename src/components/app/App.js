@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { css } from 'glamor';
 import { GlobalStyles } from '../../style/global-style';
 
+import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { Slides } from '../slides/slides';
 
@@ -16,17 +17,28 @@ const vignette = css({
 	pointerEvents: "none"
 });
 
+let showHeader = false;
+
 
 class App extends Component {
-	advance() {
-		console.log('asdf');
+	// advance() {
+	// 	console.log('asdf');
+	// }
+	makeHeaderVisible() {
+		console.log('makeHeaderVisible');
+		showHeader = true;
 	}
 
 	render() {
 		return (
 			<div>
+				<Header
+					show={showHeader}
+				/>
+
 				<Slides
 					slideIndex={ 0 }
+					makeHeaderVisible={ this.makeHeaderVisible }
 				/>
 
 				<Footer/>

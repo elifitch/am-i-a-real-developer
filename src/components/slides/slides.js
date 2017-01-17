@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { css, merge } from 'glamor';
-import { alpha, copy } from '../../style/components/type';
+import { css, merge as mergeStyles } from 'glamor';
+import { alpha, gamma, copy } from '../../style/components/type';
 import { Button } from '../button/button';
 import { Slide } from './slide';
+import { showHeader } from '../header/header';
 
 const slides = css({
+	label: "slides",
 	height: "100vh",
 	width: "100vw",
 	overflow: "hidden"
@@ -17,7 +19,11 @@ let slides__carrier = css({
 
 let slides__translation = css({
 	transform: `translateY(0%)`
-})
+});
+
+const headline = css({
+	// transform: `translateY(0%)`
+});
 
 const questionList = [
 	{
@@ -52,12 +58,15 @@ export class Slides extends Component {
 		this.advance = this.advance.bind(this);
 		this.generateQuestions = this.generateQuestions.bind(this);
 	}
+
 	shouldComponentUpdate() {
 		return true;
 	}
 
 	advance(yep) {
-		if (this.state.slide < (questionList.length)) {
+		// showHeader();
+		this.props.makeHeaderVisible();
+		if (this.state.slide < questionList.length) {
 			let newYeps;
 			let newNopes;
 			if (yep) {
@@ -68,7 +77,6 @@ export class Slides extends Component {
 
 			const nextSlide = this.state.slide + 1;
 			const translation = -(100 / ((questionList.length+1) / nextSlide));
-			console.log(translation);
 			slides__translation = css({
 				transform: `translateY(${translation}%)`
 			});
@@ -79,6 +87,10 @@ export class Slides extends Component {
 				nopes: newNopes
 			};
 			this.setState(newState);
+		}
+		if (this.state.slide === questionList.length) {
+			console.log('final');
+			showHeader();
 		}
 	}
 
@@ -101,10 +113,10 @@ export class Slides extends Component {
 
 	render() {
 		return(
-			<div className={ slides }>
-				<div { ...merge(slides__carrier, slides__translation) }>
+			<div { ...slides }>
+				<div { ...mergeStyles(slides__carrier, slides__translation) }>
 				<Slide>
-					<h1 className={ alpha }>Am I a Real<br/>Developer?</h1>
+					<h1 className={ `${alpha} ${headline}` }>Am I a Real<br/>Developer?</h1>
 					<div className="row align-center">
 						<div className="column small-10 medium-8 large-6 u-text-left">
 							<p className={ copy }>
@@ -121,7 +133,23 @@ export class Slides extends Component {
 					</div>
 				</Slide>
 				{ this.generateQuestions() }
-
+				<Slide>
+					<h1 className={ `${alpha} ${headline}` }>Congratulations!</h1>
+					<div className="row align-center">
+						<div className="column small-10 medium-8 large-6 u-text-left">
+							<p className={ gamma }>
+								Looks like you *are* a real developer!
+							</p>
+						</div>
+					</div>
+					<div>
+						<Button
+							onClick={ () => this.advance(true) }
+						>
+							Take the Quiz
+						</Button>
+					</div>
+				</Slide>
 					
 				</div>
 			</div>

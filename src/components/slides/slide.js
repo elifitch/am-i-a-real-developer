@@ -5,6 +5,7 @@ import { Button } from '../button/button';
 // import { yellow } from '../../style/color';
 
 const slides__slide = css({
+	label: "slides__slide",
 	height: "100vh",
 	width: "100vw",
 	position: "relative",
@@ -46,7 +47,7 @@ export function Slide({
 
 
 	return(
-		<div className={ slides__slide }>
+		<div { ...slides__slide }>
 			<div className="u-full-width">
 				<div className="row align-center">
 					<div className="column small-12 u-text-center">

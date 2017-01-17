@@ -6,6 +6,7 @@ import { brandon } from '../typefaces';
 export const alpha = css(
 	brandon,
 	{
+		label: "alpha",
 		display: 'inline-block',
 		fontSize: '2em',
 		textTransform: 'uppercase',

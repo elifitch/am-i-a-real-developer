@@ -24,8 +24,6 @@ const footer = css({
 	}
 });
 
-console.log(footer);
-
 const footer__link = css({
 	'transition': 'color 0.2s',
 	':hover': {
