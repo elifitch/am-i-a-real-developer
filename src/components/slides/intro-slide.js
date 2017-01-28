@@ -1,16 +1,17 @@
 import React from 'react';
 import { css, merge } from 'glamor';
 import { Button } from '../button/button';
-import { alpha, copy } from '../../style/components/type';
+import { alpha, copy, borderTraceAnim } from '../../style/components/type';
 
 const headline = css({
 	// transform: `translateY(0%)`
 });
 
-export function IntroSlide({advance}) {
+export function IntroSlide({advance, animateBorder}) {
+	const traceAnim = animateBorder ? borderTraceAnim : null;
 	return(
 		<div>
-			<h1 {...merge(alpha, headline)} >Am I a Real<br/>Developer?</h1>
+			<h1 {...merge(alpha, headline, traceAnim)} >Am I a Real<br/>Developer?</h1>
 			<div className="row align-center">
 				<div className="column small-10 medium-8 large-6 u-text-left">
 					<p className={ copy }>

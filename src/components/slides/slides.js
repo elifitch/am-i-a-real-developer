@@ -54,7 +54,8 @@ export class Slides extends Component {
 		this.state = {
 			slide: 0,
 			yeps: 0,
-			nopes: 0
+			nopes: 0,
+			animateBorder: false
 		};
 		this.advance = this.advance.bind(this);
 		this.generateQuestions = this.generateQuestions.bind(this);
@@ -114,6 +115,13 @@ export class Slides extends Component {
 	}
 
 	render() {
+		let foo = false;
+		setTimeout(() => {
+			this.setState({
+				animateBorder: true
+			});
+		},2000);
+
 		return(
 			<div { ...slides }>
 				<div { ...mergeStyles(slides__carrier, slides__translation) }>
@@ -122,6 +130,7 @@ export class Slides extends Component {
 				>
 					<IntroSlide
 						advance={this.advance}
+						animateBorder={this.state.animateBorder}
 					/>
 					{/*<h1 className={ `${alpha} ${headline}` }>Am I a Real<br/>Developer?</h1>
 					<div className="row align-center">

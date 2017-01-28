@@ -23,12 +23,20 @@ const borderTrace = css.keyframes('border-trace', { // optional name
   }
 });
 
-export const borderTraceAnim = css({
-	animationName: `${borderTrace}`,
-	animationDuration: '1.4s',
-	animationTimingFunction: 'ease-in-out',
-	animationFillMode: 'forwards',
-});
+export const borderTraceAnim = css(
+	after({
+		animationName: `${borderTrace}`,
+		animationDuration: '1.4s',
+		animationTimingFunction: 'ease-in-out',
+		animationFillMode: 'forwards',
+	}),
+	before({
+		animationName: `${borderTrace}`,
+		animationDuration: '1.4s',
+		animationTimingFunction: 'ease-in-out',
+		animationFillMode: 'forwards',
+	})
+);
 
 export const alpha = css(
 	brandon,
@@ -52,7 +60,7 @@ export const alpha = css(
 	},
 	after(
 		merge(
-			borderTraceAnim,
+			// borderTraceAnim,
 			bgBorder(purple, '0.1em', false),
 			{
 				content: '""',
@@ -70,7 +78,7 @@ export const alpha = css(
 	),
 	before(
 		merge(
-			borderTraceAnim,
+			// borderTraceAnim,
 			bgBorder(yellow, '0.1em', false), 
 			{
 				content: '""',
