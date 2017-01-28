@@ -4,10 +4,8 @@ import { yellow, purple } from '../color';
 import { brandon } from '../typefaces';
 
 const alphaBorder = bgBorder(purple, '0.1em');
-console.log(alphaBorder.toString());
-console.log(brandon.toString());
 
-export const borderTrace = css.keyframes('border-trace', { // optional name
+const borderTrace = css.keyframes('border-trace', { // optional name
   '0%': {
   	backgroundSize: '0% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
   },
@@ -23,15 +21,14 @@ export const borderTrace = css.keyframes('border-trace', { // optional name
   '100%': {
   	backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
   }
-})
-// export const borderTrace = css.keyframes('border-trace', { // optional name
-//   '0%': {
-//   	opacity: 0
-//   },
-//   '100%': {
-//   	opacity: 1
-//   }
-// })
+});
+
+export const borderTraceAnim = css({
+	animationName: `${borderTrace}`,
+	animationDuration: '1.4s',
+	animationTimingFunction: 'ease-in-out',
+	animationFillMode: 'forwards',
+});
 
 export const alpha = css(
 	brandon,
@@ -55,39 +52,39 @@ export const alpha = css(
 	},
 	after(
 		merge(
+			borderTraceAnim,
 			bgBorder(purple, '0.1em', false),
 			{
+				content: '""',
 				top: 'calc(50% - 0.1em)',
 				left: 'calc(50% - 0.1em)',
-				content: '""',
 				height: 'calc(100% + 0.2em)',
 				width: 'calc(100% + 0.2em)',
 				display: 'block',
 				position: 'absolute',
 				transform: 'translate(-50%, -50%)',
 				borderRadius: '0.04em',
-				animationName: `${borderTrace}`,
-				animationDuration: '2s',
-				animationTimingFunction: 'ease-out',
 				backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
 			}
 		)
 	),
 	before(
-		merge(bgBorder(yellow, '0.1em'), {
-			top: 'calc(50% + 0.1em)',
-			left: 'calc(50% + 0.1em)',
-			// border: `0.1em solid ${yellow}`,
-			content: '""',
-			// height: '100%',
-			// width: '100%',
-			height: 'calc(100% + 0.2em)',
-			width: 'calc(100% + 0.2em)',
-			display: 'block',
-			position: 'absolute',
-			transform: 'translate(-50%, -50%)',
-			borderRadius: '0.04em'
-		})
+		merge(
+			borderTraceAnim,
+			bgBorder(yellow, '0.1em', false), 
+			{
+				content: '""',
+				top: 'calc(50% + 0.1em)',
+				left: 'calc(50% + 0.1em)',
+				height: 'calc(100% + 0.2em)',
+				width: 'calc(100% + 0.2em)',
+				display: 'block',
+				position: 'absolute',
+				transform: 'translate(-50%, -50%) rotate(180deg)',
+				borderRadius: '0.04em',
+				backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
+			}
+		)
 	)
 );
 
