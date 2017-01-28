@@ -17,7 +17,7 @@ const vignette = css({
 	pointerEvents: "none"
 });
 
-let showHeader = false;
+let headerVisible = false;
 
 
 class App extends Component {
@@ -26,14 +26,14 @@ class App extends Component {
 	// }
 	makeHeaderVisible() {
 		console.log('makeHeaderVisible');
-		showHeader = true;
+		headerVisible = true;
 	}
 
 	render() {
 		return (
 			<div>
 				<Header
-					show={showHeader}
+					visible={ headerVisible }
 				/>
 
 				<Slides

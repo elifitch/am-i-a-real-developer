@@ -1,7 +1,37 @@
-import { css, after, before } from 'glamor';
-import { threeDText } from '../mixins';
+import { css, after, before, merge } from 'glamor';
+import { threeDText, bgBorder } from '../mixins';
 import { yellow, purple } from '../color';
 import { brandon } from '../typefaces';
+
+const alphaBorder = bgBorder(purple, '0.1em');
+console.log(alphaBorder.toString());
+console.log(brandon.toString());
+
+export const borderTrace = css.keyframes('border-trace', { // optional name
+  '0%': {
+  	backgroundSize: '0% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
+  },
+  '25%': {
+  	backgroundSize: '100% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
+  },
+  '50%': {
+  	backgroundSize: '100% 0.1em, 0.1em 100%, 0% 0.1em, 0.1em 0%'
+  },
+  '75%': {
+  	backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 0%'
+  },
+  '100%': {
+  	backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
+  }
+})
+// export const borderTrace = css.keyframes('border-trace', { // optional name
+//   '0%': {
+//   	opacity: 0
+//   },
+//   '100%': {
+//   	opacity: 1
+//   }
+// })
 
 export const alpha = css(
 	brandon,
@@ -23,31 +53,61 @@ export const alpha = css(
 			textShadow: threeDText(yellow, 10)
 		}
 	},
-	after({
-		top: 'calc(50% - 0.1em)',
-		left: 'calc(50% - 0.1em)',
-		border: `0.1em solid ${purple}`,
-		content: '""',
-		height: '100%',
-		width: '100%',
-		display: 'block',
-		position: 'absolute',
-		transform: 'translate(-50%, -50%)',
-		borderRadius: '0.04em'
-	}),
-	before({
-		top: 'calc(50% + 0.1em)',
-		left: 'calc(50% + 0.1em)',
-		border: `0.1em solid ${yellow}`,
-		content: '""',
-		height: '100%',
-		width: '100%',
-		display: 'block',
-		position: 'absolute',
-		transform: 'translate(-50%, -50%)',
-		borderRadius: '0.04em'
-	})
+	after(
+		merge(
+			bgBorder(purple, '0.1em', false),
+			{
+				top: 'calc(50% - 0.1em)',
+				left: 'calc(50% - 0.1em)',
+				content: '""',
+				height: 'calc(100% + 0.2em)',
+				width: 'calc(100% + 0.2em)',
+				display: 'block',
+				position: 'absolute',
+				transform: 'translate(-50%, -50%)',
+				borderRadius: '0.04em',
+				animationName: `${borderTrace}`,
+				animationDuration: '2s',
+				animationTimingFunction: 'ease-out',
+				backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
+			}
+		)
+	),
+	before(
+		merge(bgBorder(yellow, '0.1em'), {
+			top: 'calc(50% + 0.1em)',
+			left: 'calc(50% + 0.1em)',
+			// border: `0.1em solid ${yellow}`,
+			content: '""',
+			// height: '100%',
+			// width: '100%',
+			height: 'calc(100% + 0.2em)',
+			width: 'calc(100% + 0.2em)',
+			display: 'block',
+			position: 'absolute',
+			transform: 'translate(-50%, -50%)',
+			borderRadius: '0.04em'
+		})
+	)
 );
+
+// export const alpha_$_In = css.keyframes('border-trace', { // optional name
+//   '0%': {
+//   	backgroundSize: '0% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
+//   },
+//   '25%': {
+//   	backgroundSize: '100% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
+//   },
+//   '50%': {
+//   	backgroundSize: '100% 0.1em, 0.1em 100%, 0% 0.1em, 0.1em 0%'
+//   },
+//   '75%': {
+//   	backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 0%'
+//   },
+//   '1000%': {
+//   	backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%;'
+//   }
+// })
 
 export const beta = css(
 	brandon,

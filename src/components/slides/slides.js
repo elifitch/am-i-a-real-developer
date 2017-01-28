@@ -4,6 +4,7 @@ import { alpha, gamma, copy } from '../../style/components/type';
 import { Button } from '../button/button';
 import { Slide } from './slide';
 import { showHeader } from '../header/header';
+import { IntroSlide } from './intro-slide';
 
 const slides = css({
 	label: "slides",
@@ -39,7 +40,7 @@ const questionList = [
 		question: "Are you a person or company that builds and sells houses or other buildings on a piece of land?"
 	},
 	{
-		question: "Are you a person who lays out at full size the lines of a ship or vessel and prepares templates from them?"
+		question: "Are you a person who lays out, at full size, the lines of a ship or vessel and prepares templates from them?"
 	},
 	{
 		question: "Do you make software?"
@@ -103,6 +104,7 @@ export class Slides extends Component {
 					advance={ self.advance }
 					title={`# ${index + 1}`}
 					question={question.question}
+					key={index}
 				>
 				</Slide>
 			)
@@ -115,8 +117,13 @@ export class Slides extends Component {
 		return(
 			<div { ...slides }>
 				<div { ...mergeStyles(slides__carrier, slides__translation) }>
-				<Slide>
-					<h1 className={ `${alpha} ${headline}` }>Am I a Real<br/>Developer?</h1>
+				<Slide
+					key={0}
+				>
+					<IntroSlide
+						advance={this.advance}
+					/>
+					{/*<h1 className={ `${alpha} ${headline}` }>Am I a Real<br/>Developer?</h1>
 					<div className="row align-center">
 						<div className="column small-10 medium-8 large-6 u-text-left">
 							<p className={ copy }>
@@ -130,10 +137,12 @@ export class Slides extends Component {
 						>
 							Take the Quiz
 						</Button>
-					</div>
+					</div>*/}
 				</Slide>
 				{ this.generateQuestions() }
-				<Slide>
+				<Slide
+					key={"final"}
+				>
 					<h1 className={ `${alpha} ${headline}` }>Congratulations!</h1>
 					<div className="row align-center">
 						<div className="column small-10 medium-8 large-6 u-text-left">

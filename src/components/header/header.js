@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { css } from 'glamor';
+import { css, merge } from 'glamor';
 import { alpha } from "../../style/components/type";
 import { yellow, purple } from "../../style/color";
 import { threeDText } from "../../style/mixins";
@@ -30,14 +30,36 @@ let header__logo = css(
 	}
 );
 
-let headerVisibile = css({
-	opacity: 0
-});
-
 export class Header extends Component {
+	constructor(props) {
+		super(props);
+		// this.slide = 0;
+		console.log(props);
+		this.state = {
+			visible: this.props.visible
+		};
+		// this.advance = this.advance.bind(this);
+		// this.generateQuestions = this.generateQuestions.bind(this);
+	}
+
+	shouldComponentUpdate(nextProps) {
+		console.log("shouldComponentUpdate");
+		console.log(nextProps);
+		return true;
+	}
+	componentWillReceiveProps(nextProps){
+		console.log("componentWillReceiveProps");
+		console.log(nextProps);
+	}
+
 	render() {
+		console.log(this.state);
+		let headerVisible = css({
+			opacity: this.props.show ? 1 : 0
+		});
+
 		return (
-			<header { ...header }>
+			<header { ...merge(header, headerVisible) }>
 				<div className="row">
 					<div className="column small-12 u-text-center">
 						<div {...header__logo}>AIARD?</div>
