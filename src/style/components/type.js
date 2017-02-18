@@ -225,7 +225,7 @@ export const gamma = css(
 	brandon,
 	{
 		fontSize: '2em',
-		marginBottom: '0.5em'
+		marginBottom: '0.7em'
 	}
 )
 

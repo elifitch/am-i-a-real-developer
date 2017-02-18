@@ -5,11 +5,12 @@ import { pinopolis } from "../../style/typefaces";
 
 export function Button({
 	onClick,
+	href,
 	theme,
 	children
 }) {
 	const primaryColor = theme ? theme : purple;
-	const button = css(
+	const buttonStyle = css(
 		pinopolis,
 		{
 			display: "inline-block",
@@ -27,22 +28,38 @@ export function Button({
 			letterSpacing: "0.05em",
 			cursor: "pointer",
 			minWidth: "8em",
+			marginBottom: "1em",
 			":hover": {
 				backgroundColor: primaryColor,
 				color: lightGray
 			},
+			// " &+ button, &+ a": {
 			" &+ button": {
 				marginLeft: "2em"
 			}
 		}
 	);
-
-	return (
-		<button
-			className={ button }
-			onClick={ onClick }
-		>
-			{ children }
-		</button>
-	);
+	
+	if (href) {
+			return (
+				<a
+	 				className={ buttonStyle }
+	 				onClick={ onClick }
+	 				href={ href }
+	 				target="_blank"
+	 			>
+	 				{ children }
+	 			</a>
+	 		);
+	} else {
+		return (
+			<button
+				className={ buttonStyle }
+				onClick={ onClick }
+			>
+				{ children }
+			</button>
+		);
+	}
 }
+

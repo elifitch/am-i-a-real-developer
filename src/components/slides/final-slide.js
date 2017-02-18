@@ -71,28 +71,46 @@ export class FinalSlide extends React.Component {
 								{
 									this.props.isSuccessful ? 
 									'Looks like you ARE a real developer!' :
-									"Don't freak out"
+									"Shock, horror! It is ok to not be a developer."
 								}
 							</p>
 						</div>
 					</div>
 					<div className={'row align-center'}>
-						<div className="column small-10 medium-8 large-6 u-text-center">
+						<div className="column small-10 medium-8 large-7 xlarge-6 u-text-left">
 							<p className={ copy }>
 								{
 									this.props.isSuccessful ? 
-									`Don't ever let anybody tell you that you're anything less than you are. No developer gets to be "more" developer than anybody else. Nobody gets to be the arbiter of "realness". Are you a developer? 💩 yeah.`  :
-									"Don't freak out"
+									`Don't ever let anybody tell you that you're anything less than you are. No developer gets to be "more" developer than anybody else. Nobody gets to be the arbiter of "realness".`  :
+									`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. If you're not a developer that's cool.`
 								}
 							</p>
+							{
+								!this.props.isSuccessful ? 
+								<p className={ copy }>
+									If you would like to be, hit the button down thattaways 👇🏾 and check out some awesome free resources at Codecademy.com.
+								</p> : 
+								<p className={ copy }>
+									Are you a real developer? 💩 yeah.
+								</p>
+							}
 						</div>
 					</div>
-					<div>
-						<Button
-							onClick={ () => this.props.advance(true) }
+					<div className={'row align-center'}>
+						<div className="column small-12 medium-10 large-8 u-align-justify"
+							style={{maxWidth: '38rem'}}
 						>
-							Share on the twitters ✌️
-						</Button>
+							<Button
+								href={"http://eli.wtf"}
+							>
+								Share on the twitters ✌️🏾
+							</Button>
+							<Button
+								href={"http://eli.wtf"}
+							>
+								Check out Codecademy 🚀
+							</Button>
+						</div>
 					</div>
 				</div>
 			</div>
