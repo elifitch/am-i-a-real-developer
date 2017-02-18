@@ -39,16 +39,6 @@ function removeClass(el, className) {
 const DECAY = 2.5;
 const SPREAD = 50;
 const GRAVITY = 1200;
-// const PURPLE = {
-// 	r: 128,
-// 	g: 0,
-// 	b: 255
-// };
-// const GOLD = {
-// 	r: 255,
-// 	g: 223,
-// 	b: 44
-// };
 
 export class Confetti extends React.Component {
 	constructor() {
@@ -102,7 +92,6 @@ export class Confetti extends React.Component {
 		canvas.height = window.innerHeight * this.dpr;
 	}
 
-	// addConfettiParticles(amount, angle, velocity, x, y) {
 	addConfettiParticles(amount, angle, velocity, canvasW, canvasH) {
 		let i = 0;
 		let evenPurple = true;

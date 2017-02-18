@@ -22,7 +22,7 @@ class App extends Component {
 		super();
 		this.state = {
 			headerVisible: false,
-			fireConfetti: true
+			fireConfetti: false
 		}
 		this.makeHeaderVisible = this.makeHeaderVisible.bind(this);
 		this.startConfetti = this.startConfetti.bind(this);
