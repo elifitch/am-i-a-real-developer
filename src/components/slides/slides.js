@@ -3,7 +3,7 @@ import { css, merge as mergeStyles } from 'glamor';
 import { alpha, gamma } from '../../style/components/type';
 import { Button } from '../button/button';
 import { Slide } from './slide';
-import { IntroSlide } from './intro-slide';
+import { HighlightSlide } from './highlight-slide';
 
 const slides = css({
 	label: "slides",
@@ -115,8 +115,12 @@ export class Slides extends Component {
 				<Slide
 					key={0}
 				>
-					<IntroSlide
+					<HighlightSlide
 						advance={this.advance}
+						primaryContent={'Am I a Real'}
+						secondaryContent={'Developer'}
+						copy={`Sick of folks saying that you're not engineery enough? That you're not a "real" developer? Take the quiz and find out.`}
+						buttonText={'Take the Quiz!'}
 					/>
 				</Slide>
 

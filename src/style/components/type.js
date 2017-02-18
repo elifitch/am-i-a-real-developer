@@ -63,7 +63,7 @@ export const alpha = css(
 			textShadow: threeDText(yellow, 10)
 		},
 		" span": {
-			display: "inline-block"//,
+			display: "inline-block",
 			// transform: "translateY(50%)"
 		}
 	},
