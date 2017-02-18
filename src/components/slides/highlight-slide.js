@@ -14,7 +14,7 @@ import {
 	copy, 
 	borderTraceAnim 
 } from '../../style/components/type';
-import { TimelineLite, Elastic } from 'gsap';
+import { TimelineLite, Elastic, Power0 } from 'gsap';
 import { uniqueId as loUniqueId } from 'lodash';
 import { yellowBg, purpleBg } from '../../style/color';
 
@@ -51,11 +51,27 @@ export class HighlightSlide extends React.Component {
 						}, 200)
 					}
 				}, 0.05)
-				.staggerFrom(`#body-${this.bodyUniqueId} > div`, 0.5, {
+				.from('.alpha__borders > span:nth-child(1)', 0.4, {
+					x: "-100%",
+					ease: Power0.easeNone
+				}, '-=0.5')
+				.from('.alpha__borders > span:nth-child(2)', 0.3, {
+					y: "-100%",
+					ease: Power0.easeNone
+				})
+				.from('.alpha__borders > span:nth-child(3)', 0.4, {
+					x: "100%",
+					ease: Power0.easeNone
+				})
+				.from('.alpha__borders > span:nth-child(4)', 0.3, {
+					y: "100%",
+					ease: Power0.easeNone
+				})
+				.staggerFrom(`#body-${this.bodyUniqueId} > div`, 0.8, {
 					y: "-30%", 
 					opacity: 0, 
-					ease: Elastic.easeOut.config(1, 0.5)
-				}, 0.15, "+=0.5")
+					ease: Elastic.easeOut.config(1, 0.9)
+				}, 0.2, "-=0.5")
 
 
 			TL.play();
@@ -77,13 +93,13 @@ export class HighlightSlide extends React.Component {
 									<br/>
 									{spanSplit(this.props.secondaryContent)}
 								</span>
-								<div {...alpha__borders}>
+								<div className="alpha__borders" {...alpha__borders}>
 										<span {...merge(purpleBg, alpha__borderTB, alpha__borderTop)}></span>
 										<span {...merge(purpleBg, alpha__borderRL, alpha__borderRight)}></span>
 										<span {...merge(purpleBg, alpha__borderTB, alpha__borderBottom)}></span>
 										<span {...merge(purpleBg, alpha__borderRL, alpha__borderLeft)}></span>
 								</div>
-								<div {...alpha__borders}>
+								<div className="alpha__borders" {...alpha__borders}>
 										<span {...merge(yellowBg, alpha__borderTB, alpha__borderTop)}></span>
 										<span {...merge(yellowBg, alpha__borderRL, alpha__borderRight)}></span>
 										<span {...merge(yellowBg, alpha__borderTB, alpha__borderBottom)}></span>

@@ -133,36 +133,32 @@ export const alpha = css(
 );
 
 export const alpha__borders = css({
-	top: 'calc(50% - 0.2em)',
-	left: 'calc(50% - 0.2em)',
-	height: 'calc(100% + 0.8em)',
-	width: 'calc(100% + 0.8em)',
+	top: 'calc(50% - 0.1em)',
+	left: 'calc(50% - 0.1em)',
+	height: 'calc(100% + 0.4em)',
+	width: 'calc(100% + 0.4em)',
 	display: 'block',
 	position: 'absolute',
 	transform: 'translate(-50%, -50%)',
-	// backgroundColor: purple,
-	// zIndex: -1,
-	// backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
-	// backgroundSize: '0% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
+	overflow: 'hidden',
 	"&:last-child": {
 		transform: 'translate(-50%, -50%) rotate(180deg)',
-		top: 'calc(50% + 0.2em)',
-		left: 'calc(50% + 0.2em)',
+		top: 'calc(50% + 0.1em)',
+		left: 'calc(50% + 0.1em)',
 		zIndex: -1,
-		// backgroundColor: yellow,
 	}
 
 });
 
 export const alpha__borderTB = css({
 	position: 'absolute',
-	height: '0.2em',
+	height: '0.1em',
 	width: '100%',
 });
 export const alpha__borderRL = css({
 	position: 'absolute',
 	height: '100%',
-	width: '0.2em',
+	width: '0.1em',
 });
 
 export const alpha__borderTop = css({
