@@ -55,8 +55,6 @@ export class Slides extends Component {
 			slide: 0,
 			yeps: 0,
 			nopes: 0,
-			animateBorder: true,
-			animateTitle: false
 		};
 		this.advance = this.advance.bind(this);
 		this.generateQuestions = this.generateQuestions.bind(this);
@@ -126,8 +124,6 @@ export class Slides extends Component {
 				>
 					<IntroSlide
 						advance={this.advance}
-						animateBorder={this.state.animateBorder}
-						animateTitle={true}
 					/>
 				</Slide>
 				{ this.generateQuestions() }
