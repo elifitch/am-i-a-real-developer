@@ -5,6 +5,7 @@ import { css } from 'glamor';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { Slides } from '../slides/slides';
+import { Confetti } from '../confetti/confetti';
 
 const vignette = css({
 	position: "fixed",
@@ -20,13 +21,26 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			headerVisible: false
+			headerVisible: false,
+			fireConfetti: false
 		}
-		this.makeHeaderVisible = this.makeHeaderVisible.bind(this)
+		this.makeHeaderVisible = this.makeHeaderVisible.bind(this);
+		this.startConfetti = this.startConfetti.bind(this);
+		this.stopConfetti = this.stopConfetti.bind(this);
 	}
 	makeHeaderVisible() {
 		this.setState({
 			headerVisible: true
+		})
+	}
+	startConfetti() {
+		this.setState({
+			fireConfetti: true
+		})
+	}
+	stopConfetti() {
+		this.setState({
+			fireConfetti: false
 		})
 	}
 
@@ -40,6 +54,10 @@ class App extends Component {
 				<Slides
 					slideIndex={ 0 }
 					makeHeaderVisible={ this.makeHeaderVisible }
+				/>
+
+				<Confetti 
+					shoot={this.state.fireConfetti}
 				/>
 
 				<Footer/>
