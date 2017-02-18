@@ -36,7 +36,7 @@ function removeClass(el, className) {
 	el.classList.remove(className);
 }
 
-const DECAY = 4;
+const DECAY = 2.5;
 const SPREAD = 50;
 const GRAVITY = 1200;
 // const PURPLE = {
@@ -85,7 +85,7 @@ export class Confetti extends React.Component {
 		canvas.addEventListener('resize', this.setCanvasSize);
 
 		this.setCanvasSize();
-		// this.shootConfetti();
+		this.shootConfetti();
 	}
 
 	handleMousedown() {
@@ -102,13 +102,25 @@ export class Confetti extends React.Component {
 		canvas.height = window.innerHeight * this.dpr;
 	}
 
-	addConfettiParticles(amount, angle, velocity, x, y) {
+	// addConfettiParticles(amount, angle, velocity, x, y) {
+	addConfettiParticles(amount, angle, velocity, canvasW, canvasH) {
 		let i = 0;
+		let evenPurple = true;
+		let oddPurple = false;
 		while (i < amount) {
 			// sprite
+			const isEven = i % 2 === 0
 			const r = loRandom(4, 6) * this.dpr;
 			const d = loRandom(15, 25) * this.dpr;
-			const colorBase = i % 2 === 0 ? goldRGB : purpleRGB;
+			let colorBase = {};
+
+			if (isEven) {
+				colorBase = evenPurple ? purpleRGB : goldRGB;
+				evenPurple = !evenPurple;
+			} else {
+				colorBase = oddPurple ? purpleRGB : goldRGB;
+				oddPurple = !oddPurple;
+			}
 			
 			const color = `rgb(${colorBase.r}, ${colorBase.g}, ${colorBase.b})`;
 			
@@ -119,10 +131,10 @@ export class Confetti extends React.Component {
 			const id = loUniqueId();
 			const sprite = {
 				[id]: {
-					angle,
+					angle: isEven ? (angle + 20) : (angle - 20),
 					velocity,
-					x,
-					y,
+					x: isEven ? canvasW * .1 : canvasW * .9,
+					y: canvasH * .9,
 					r,
 					d,
 					color,
@@ -210,7 +222,7 @@ export class Confetti extends React.Component {
 		const canvas = this.refs.canvas;
 		requestAnimationFrame(this.shootConfetti);
 		if (this.props.shoot) {
-			this.addConfettiParticles(10, this.angle, 5000, canvas.width/2, canvas.height*.9);   
+			this.addConfettiParticles(4, 270, 5000, canvas.width, canvas.height);
 		}
 	}
 
