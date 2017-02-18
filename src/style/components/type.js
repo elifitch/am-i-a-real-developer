@@ -208,7 +208,8 @@ export const alphaSmall = css(
 	alpha,
 	{
 		fontSize: '3em',
-		marginBottom: '0.5em'
+		// marginBottom: '0.5em'
+		marginBottom: 0
 	}
 )
 
@@ -224,6 +225,7 @@ export const gamma = css(
 	brandon,
 	{
 		fontSize: '2em',
+		marginBottom: '0.5em'
 	}
 )
 

@@ -56,9 +56,9 @@ class App extends Component {
 					makeHeaderVisible={ this.makeHeaderVisible }
 				/>
 
-				<Confetti 
+				{/*<Confetti 
 					shoot={this.state.fireConfetti}
-				/>
+				/>*/}
 
 				<Footer/>
 				<div className={ vignette }></div>

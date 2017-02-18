@@ -12,7 +12,7 @@ let header = css({
 	paddingTop: "2rem",
 	paddingBottom: "2rem",
 	textAlign: "center",
-	fontSize: "0.2em",
+	fontSize: "0.6em",
 	opacity: 1,
 	transition: "opacity 1s",
 	'@media screen and (min-width: 640px)': {
