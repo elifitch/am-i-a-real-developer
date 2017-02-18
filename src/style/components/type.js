@@ -125,6 +125,14 @@ export const alpha = css(
 //   }
 // })
 
+export const alphaSmall = css(
+	alpha,
+	{
+		fontSize: '3em',
+		marginBottom: '0.5em'
+	}
+);
+
 export const beta = css(
 	brandon,
 	{
