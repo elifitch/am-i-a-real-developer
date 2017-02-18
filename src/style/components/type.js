@@ -56,6 +56,10 @@ export const alpha = css(
 		"@media screen and (min-width: 640px)": {
 			fontSize: '5em',
 			textShadow: threeDText(yellow, 10)
+		},
+		" span": {
+			display: "inline-block",
+			transform: "translateY(50%)"
 		}
 	},
 	after(
