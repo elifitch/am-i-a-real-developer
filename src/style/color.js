@@ -1,3 +1,5 @@
+import { css } from 'glamor';
+
 export const purple = "#8000FF";
 export const purpleRGB = {
 	r: 128,
@@ -16,3 +18,10 @@ export const goldRGB = {
 // export const yellow = "#ffd52c"; // darker gold
 export const lightGray = "#eeeeee";
 export const darkGray = "#333333";
+
+export const purpleBg = css({
+	backgroundColor: purple
+});
+export const yellowBg = css({
+	backgroundColor: yellow
+});
