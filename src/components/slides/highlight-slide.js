@@ -30,7 +30,6 @@ export class HighlightSlide extends React.Component {
 	componentWillMount() {
 		// dunno why can't pass element as ref to anim, need get hacky w/ ids
 		this.bodyUniqueId = loUniqueId();
-		console.log(this.bodyUniqueId);
 	}
 	componentDidMount() {
 		// run gsap anim
@@ -116,7 +115,7 @@ export class HighlightSlide extends React.Component {
 					<div>
 						{this.props.buttonText ? 
 							<Button
-								onClick={ () => this.props.advance(true) }
+								onClick={ () => this.props.advance(false) }
 							>
 								Take the Quiz!
 							</Button> 

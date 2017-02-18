@@ -46,7 +46,6 @@ const questionList = [
 export class Slides extends Component {
 	constructor(props) {
 		super(props);
-		// this.slide = 0;
 		this.state = {
 			slide: 0,
 			yeps: 0,
@@ -65,14 +64,6 @@ export class Slides extends Component {
 			this.props.makeHeaderVisible();
 		}
 		if (this.state.slide < questionList.length + 1) {
-			let newYeps;
-			let newNopes;
-			if (yep) {
-				newYeps = this.state.yeps + 1;
-			} else {
-				newNopes = this.state.nopes + 1;
-			}
-
 			const nextSlide = this.state.slide + 1;
 			const translation = -(100 / ((questionList.length+2) / nextSlide));
 			slides__translation = css({
@@ -81,8 +72,8 @@ export class Slides extends Component {
 
 			const newState = {
 				slide: nextSlide,
-				yeps: newYeps,
-				nopes: newNopes
+				yeps: yep ? this.state.yeps + 1 : this.state.yeps,
+				nopes: yep ? this.state.nopes : this.state.nopes + 1,
 			};
 			this.setState(newState);
 		}
@@ -132,9 +123,10 @@ export class Slides extends Component {
 
 				<Slide
 					key={"final"}
-				>
+				>	
 					<FinalSlide
-						isSuccessful={this.state.yeps >= 1}
+						isSuccessful={this.state.yeps > 0}
+						isReady={this.state.slide === questionList.length + 1}
 					/>
 				</Slide>
 					
