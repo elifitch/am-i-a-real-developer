@@ -5,17 +5,18 @@ import { brandon } from '../typefaces';
 
 const alphaBorder = bgBorder(purple, '0.1em');
 
-const borderTrace = css.keyframes('border-trace', { // optional name
+const borderTrace = css.keyframes('border-trace', {
+  //depends on 740x320 ratio
   '0%': {
   	backgroundSize: '0% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
   },
-  '25%': {
+  '28.5%': {
   	backgroundSize: '100% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
   },
   '50%': {
   	backgroundSize: '100% 0.1em, 0.1em 100%, 0% 0.1em, 0.1em 0%'
   },
-  '75%': {
+  '78.5%': {
   	backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 0%'
   },
   '100%': {
@@ -26,14 +27,18 @@ const borderTrace = css.keyframes('border-trace', { // optional name
 export const borderTraceAnim = css(
 	after({
 		animationName: `${borderTrace}`,
-		animationDuration: '1.4s',
-		animationTimingFunction: 'ease-in-out',
+		// animationDuration: '1.4s',
+		animationDuration: '1.2s',
+		// animationTimingFunction: 'ease-in-out',
+		animationTimingFunction: 'linear',
 		animationFillMode: 'forwards',
 	}),
 	before({
 		animationName: `${borderTrace}`,
-		animationDuration: '1.4s',
-		animationTimingFunction: 'ease-in-out',
+		// animationDuration: '1.4s',
+		animationDuration: '1.2s',
+		// animationTimingFunction: 'ease-in-out',
+		animationTimingFunction: 'linear',
 		animationFillMode: 'forwards',
 	})
 );
@@ -58,8 +63,8 @@ export const alpha = css(
 			textShadow: threeDText(yellow, 10)
 		},
 		" span": {
-			display: "inline-block",
-			transform: "translateY(50%)"
+			display: "inline-block"//,
+			// transform: "translateY(50%)"
 		}
 	},
 	after(
@@ -76,7 +81,8 @@ export const alpha = css(
 				position: 'absolute',
 				transform: 'translate(-50%, -50%)',
 				borderRadius: '0.04em',
-				backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
+				// backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
+				backgroundSize: '0% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
 			}
 		)
 	),
@@ -94,7 +100,8 @@ export const alpha = css(
 				position: 'absolute',
 				transform: 'translate(-50%, -50%) rotate(180deg)',
 				borderRadius: '0.04em',
-				backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
+				// backgroundSize: '100% 0.1em, 0.1em 100%, 100% 0.1em, 0.1em 100%'
+				backgroundSize: '0% 0.1em, 0.1em 0%, 0% 0.1em, 0.1em 0%'
 			}
 		)
 	)

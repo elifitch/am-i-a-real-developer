@@ -127,7 +127,7 @@ export class Slides extends Component {
 					<IntroSlide
 						advance={this.advance}
 						animateBorder={this.state.animateBorder}
-						animateTitle={this.state.animateTitle}
+						animateTitle={true}
 					/>
 				</Slide>
 				{ this.generateQuestions() }
