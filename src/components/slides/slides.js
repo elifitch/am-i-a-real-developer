@@ -118,7 +118,7 @@ export class Slides extends Component {
 					<HighlightSlide
 						advance={this.advance}
 						primaryContent={'Am I a Real'}
-						secondaryContent={'Developer'}
+						secondaryContent={'Developer?'}
 						copy={`Sick of folks saying that you're not engineery enough? That you're not a "real" developer? Take the quiz and find out.`}
 						buttonText={'Take the Quiz!'}
 					/>
