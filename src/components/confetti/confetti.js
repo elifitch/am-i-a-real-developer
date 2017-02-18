@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from 'glamor';
 import { TweenMax, Power4 } from 'gsap';
+import { purpleRGB, goldRGB } from '../../style/color';
 import * as physics2D from '../../vendor/physics-2d-plugin';
 
 import { 
@@ -15,6 +16,7 @@ const canvasContainer = css({
 	left: 0,
 	width: '100%',
 	height: '100%',
+	zIndex: -1,
 });
 const canvasStyles = css({
 	width: '100%',
@@ -37,6 +39,16 @@ function removeClass(el, className) {
 const DECAY = 4;
 const SPREAD = 50;
 const GRAVITY = 1200;
+// const PURPLE = {
+// 	r: 128,
+// 	g: 0,
+// 	b: 255
+// };
+// const GOLD = {
+// 	r: 255,
+// 	g: 223,
+// 	b: 44
+// };
 
 export class Confetti extends React.Component {
 	constructor() {
@@ -73,7 +85,7 @@ export class Confetti extends React.Component {
 		canvas.addEventListener('resize', this.setCanvasSize);
 
 		this.setCanvasSize();
-		this.shootConfetti();
+		// this.shootConfetti();
 	}
 
 	handleMousedown() {
@@ -96,11 +108,9 @@ export class Confetti extends React.Component {
 			// sprite
 			const r = loRandom(4, 6) * this.dpr;
 			const d = loRandom(15, 25) * this.dpr;
+			const colorBase = i % 2 === 0 ? goldRGB : purpleRGB;
 			
-			const cr = loRandom(50, 255);
-			const cg = loRandom(50, 200);
-			const cb = loRandom(50, 200);
-			const color = `rgb(${cr}, ${cg}, ${cb})`;
+			const color = `rgb(${colorBase.r}, ${colorBase.g}, ${colorBase.b})`;
 			
 			const tilt = loRandom(10, -10);
 			const tiltAngleIncremental = loRandom(0.07, 0.05);
