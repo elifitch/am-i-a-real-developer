@@ -4,6 +4,7 @@ import { alpha, gamma } from '../../style/components/type';
 import { Button } from '../button/button';
 import { Slide } from './slide';
 import { HighlightSlide } from './highlight-slide';
+import { FinalSlide } from './final-slide';
 
 const slides = css({
 	label: "slides",
@@ -25,21 +26,21 @@ const questionList = [
 	{
 		question: "Do you write code?"
 	},
-	{
-		question: "Do you create websites?"
-	},
-	{
-		question: "Are you a chemical that is used to develop photographs?"
-	},
-	{
-		question: "Are you a person or company that builds and sells houses or other buildings on a piece of land?"
-	},
-	{
-		question: "Are you a person who lays out, at full size, the lines of a ship or vessel and prepares templates from them?"
-	},
-	{
-		question: "Do you make software?"
-	},
+	// {
+	// 	question: "Do you create websites?"
+	// },
+	// {
+	// 	question: "Are you a chemical that is used to develop photographs?"
+	// },
+	// {
+	// 	question: "Are you a person or company that builds and sells houses or other buildings on a piece of land?"
+	// },
+	// {
+	// 	question: "Are you a person who lays out, at full size, the lines of a ship or vessel and prepares templates from them?"
+	// },
+	// {
+	// 	question: "Do you make software?"
+	// },
 ];
 
 export class Slides extends Component {
@@ -88,6 +89,9 @@ export class Slides extends Component {
 		if (this.state.slide === questionList.length - 1) {
 			console.log('final');
 		}
+		if (this.state.slide === questionList.length) {
+			console.log('congrats / failure');
+		}
 	}
 
 	generateQuestions() {
@@ -129,21 +133,9 @@ export class Slides extends Component {
 				<Slide
 					key={"final"}
 				>
-					<h1 className={ `${alpha}` }>Congratulations!</h1>
-					<div className="row align-center">
-						<div className="column small-10 medium-8 large-6 u-text-left">
-							<p className={ gamma }>
-								Looks like you *are* a real developer!
-							</p>
-						</div>
-					</div>
-					<div>
-						<Button
-							onClick={ () => this.advance(true) }
-						>
-							Take the Quiz
-						</Button>
-					</div>
+					<FinalSlide
+						isSuccessful={this.state.yeps >= 1}
+					/>
 				</Slide>
 					
 				</div>

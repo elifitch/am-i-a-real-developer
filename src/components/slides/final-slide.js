@@ -2,15 +2,7 @@ import React from 'react';
 import { css, merge } from 'glamor';
 import { Button } from '../button/button';
 import { 
-	alpha, 
 	alphaSmall, 
-	alpha__borders, 
-	alpha__borderTB, 
-	alpha__borderRL, 
-	alpha__borderTop,
-	alpha__borderRight,
-	alpha__borderBottom,
-	alpha__borderLeft, 
 	copy, 
 	borderTraceAnim 
 } from '../../style/components/type';
@@ -20,7 +12,7 @@ import { yellowBg, purpleBg } from '../../style/color';
 
 const PLAY_ANIMATION = true;
 
-export class HighlightSlide extends React.Component {
+export class FinalSlide extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -30,22 +22,16 @@ export class HighlightSlide extends React.Component {
 	componentWillMount() {
 		// dunno why can't pass element as ref to anim, need get hacky w/ ids
 		this.bodyUniqueId = loUniqueId();
-		console.log(this.bodyUniqueId);
 	}
 	componentDidMount() {
 		// run gsap anim
 		if (PLAY_ANIMATION) {
 			const TL = new TimelineLite();
-			TL.staggerFrom('#intro-headline span', 0.5, {
+			TL.staggerFrom('#conclusion-headline span', 0.5, {
 					delay: 0.5, 
 					y: "-40%", 
 					opacity: 0, 
-					ease: Elastic.easeOut.config(1, 0.5),
-					onComplete: () => {
-						setTimeout(() => {
-							// this.setState({animateBorder: true})
-						}, 200)
-					}
+					ease: Elastic.easeOut.config(1, 0.5)
 				}, 0.05)
 				.from('.alpha__borders > span:nth-child(1)', 0.4, {
 					x: "-100%",
@@ -69,40 +55,24 @@ export class HighlightSlide extends React.Component {
 					ease: Elastic.easeOut.config(1, 0.9)
 				}, 0.2, "-=0.5")
 
-				// TL.pause();
+				TL.pause();
 			TL.play();
 		}
 	}
 
 	render() {
-		const traceAnim = this.state.animateBorder ? borderTraceAnim : null;
-		const typeClass = this.props.secondaryContent ? alpha : alphaSmall;
-
 		return (
 			<div>
-				<h1 {...merge(typeClass, traceAnim)}>
+				<h1 {...alphaSmall}>
 					{
-						this.props.secondaryContent ? 
-							<span>
-								<span id="intro-headline">
-									{spanSplit(this.props.primaryContent)}
-									<br/>
-									{spanSplit(this.props.secondaryContent)}
-								</span>
-								<div className="alpha__borders" {...alpha__borders}>
-										<span {...merge(purpleBg, alpha__borderTB, alpha__borderTop)}></span>
-										<span {...merge(purpleBg, alpha__borderRL, alpha__borderRight)}></span>
-										<span {...merge(purpleBg, alpha__borderTB, alpha__borderBottom)}></span>
-										<span {...merge(purpleBg, alpha__borderRL, alpha__borderLeft)}></span>
-								</div>
-								<div className="alpha__borders" {...alpha__borders}>
-										<span {...merge(yellowBg, alpha__borderTB, alpha__borderTop)}></span>
-										<span {...merge(yellowBg, alpha__borderRL, alpha__borderRight)}></span>
-										<span {...merge(yellowBg, alpha__borderTB, alpha__borderBottom)}></span>
-										<span {...merge(yellowBg, alpha__borderRL, alpha__borderLeft)}></span>
-								</div>
-							</span>
-						: <span>{spanSplit(this.props.primaryContent)}</span>
+						this.props.isSuccessful ? 
+						<span id="conclusion-headline">
+								{spanSplit('Congrats!')}
+						</span>
+						: 
+						<span id="conclusion-headline">
+							{spanSplit('Oh no!')}
+						</span>
 					}
 				</h1>
 				<div id={`body-${this.bodyUniqueId}`}>
