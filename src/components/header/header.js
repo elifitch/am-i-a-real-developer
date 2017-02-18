@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { css, merge } from 'glamor';
 import { alpha } from "../../style/components/type";
-import { yellow, purple } from "../../style/color";
+import { yellow, } from "../../style/color";
 import { threeDText } from "../../style/mixins";
 
 let header = css({
@@ -30,50 +30,18 @@ let header__logo = css(
 	}
 );
 
-export class Header extends Component {
-	constructor(props) {
-		super(props);
-		// this.slide = 0;
-		console.log(props);
-		this.state = {
-			visible: this.props.visible
-		};
-		// this.advance = this.advance.bind(this);
-		// this.generateQuestions = this.generateQuestions.bind(this);
-	}
+export function Header({visible}) {
+	let headerVisible = css({
+		opacity: visible ? 1 : 0
+	});
 
-	shouldComponentUpdate(nextProps) {
-		console.log("shouldComponentUpdate");
-		console.log(nextProps);
-		return true;
-	}
-	componentWillReceiveProps(nextProps){
-		console.log("componentWillReceiveProps");
-		console.log(nextProps);
-	}
-
-	render() {
-		console.log(this.state);
-		let headerVisible = css({
-			opacity: this.props.show ? 1 : 0
-		});
-
-		return (
-			<header { ...merge(header, headerVisible) }>
-				<div className="row">
-					<div className="column small-12 u-text-center">
-						<div {...header__logo}>AIARD?</div>
-					</div>
+	return (
+		<header { ...merge(header, headerVisible) }>
+			<div className="row">
+				<div className="column small-12 u-text-center">
+					<div {...header__logo}>AIARD?</div>
 				</div>
-			</header>
-		);
-	}
+			</div>
+		</header>
+	);
 }
-
-// export function showHeader() {
-// 	headerVisibile = css({
-// 		opacity: 1
-// 	})
-// }
-
-// window.showHeader = showHeader;

@@ -16,7 +16,7 @@ import tinycolor from 'tinycolor2';
 
 export function threeDText(color, depth) {
 	let style = "";
-	let shadowColor = tinycolor(color);
+	// let shadowColor = tinycolor(color);
 	for (let i = 1; i <= depth; i++) {
 		let outputColor = tinycolor(color).toString();
 

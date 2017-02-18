@@ -3,7 +3,7 @@ import { threeDText, bgBorder } from '../mixins';
 import { yellow, purple } from '../color';
 import { brandon } from '../typefaces';
 
-const alphaBorder = bgBorder(purple, '0.1em');
+// const alphaBorder = bgBorder(purple, '0.1em');
 
 const borderTrace = css.keyframes('border-trace', {
   //depends on 740x320 ratio

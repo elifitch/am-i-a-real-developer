@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { css, merge as mergeStyles } from 'glamor';
-import { alpha, gamma, copy } from '../../style/components/type';
+import { alpha, gamma } from '../../style/components/type';
 import { Button } from '../button/button';
 import { Slide } from './slide';
-import { showHeader } from '../header/header';
 import { IntroSlide } from './intro-slide';
 
 const slides = css({
@@ -20,10 +19,6 @@ let slides__carrier = css({
 
 let slides__translation = css({
 	transform: `translateY(0%)`
-});
-
-const headline = css({
-	// transform: `translateY(0%)`
 });
 
 const questionList = [
@@ -65,9 +60,10 @@ export class Slides extends Component {
 	}
 
 	advance(yep) {
-		// showHeader();
-		this.props.makeHeaderVisible();
-		if (this.state.slide < questionList.length) {
+		if (this.state.slide === 0) {
+			this.props.makeHeaderVisible();
+		}
+		if (this.state.slide < questionList.length + 1) {
 			let newYeps;
 			let newNopes;
 			if (yep) {
@@ -89,9 +85,8 @@ export class Slides extends Component {
 			};
 			this.setState(newState);
 		}
-		if (this.state.slide === questionList.length) {
+		if (this.state.slide === questionList.length - 1) {
 			console.log('final');
-			showHeader();
 		}
 	}
 
@@ -114,8 +109,6 @@ export class Slides extends Component {
 	}
 
 	render() {
-		let foo = false;
-
 		return(
 			<div { ...slides }>
 				<div { ...mergeStyles(slides__carrier, slides__translation) }>
@@ -126,11 +119,13 @@ export class Slides extends Component {
 						advance={this.advance}
 					/>
 				</Slide>
+
 				{ this.generateQuestions() }
+
 				<Slide
 					key={"final"}
 				>
-					<h1 className={ `${alpha} ${headline}` }>Congratulations!</h1>
+					<h1 className={ `${alpha}` }>Congratulations!</h1>
 					<div className="row align-center">
 						<div className="column small-10 medium-8 large-6 u-text-left">
 							<p className={ gamma }>

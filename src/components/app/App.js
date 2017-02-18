@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { css } from 'glamor';
-import { GlobalStyles } from '../../style/global-style';
 
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
@@ -17,23 +16,25 @@ const vignette = css({
 	pointerEvents: "none"
 });
 
-let headerVisible = false;
-
-
 class App extends Component {
-	// advance() {
-	// 	console.log('asdf');
-	// }
+	constructor() {
+		super();
+		this.state = {
+			headerVisible: false
+		}
+		this.makeHeaderVisible = this.makeHeaderVisible.bind(this)
+	}
 	makeHeaderVisible() {
-		console.log('makeHeaderVisible');
-		headerVisible = true;
+		this.setState({
+			headerVisible: true
+		})
 	}
 
 	render() {
 		return (
 			<div>
 				<Header
-					visible={ headerVisible }
+					visible={ this.state.headerVisible }
 				/>
 
 				<Slides
