@@ -16,7 +16,8 @@ const slide__content = css({
 	height: 'calc(100vh - 8em)',
 	overflow: 'auto',
 	paddingTop: '12vmin',
-	paddingBottom: '1em'
+	paddingBottom: '1em',
+	pointerEvents: 'auto'
 });
 const buttonContainer = css({
 	display: 'flex',
@@ -34,13 +35,18 @@ export class FinalSlide extends React.Component {
 			animateBorder: false
 		}
 	}
+	shouldComponentUpdate(nextProps) {
+		if (this.props.isSuccessful !== nextProps.isSuccessful || this.props.isReady !== nextProps.isReady) {
+			return true;
+		}
+		return false;
+	}
 	componentWillMount() {
 		// dunno why can't pass element as ref to anim, need get hacky w/ ids
 		this.bodyUniqueId = loUniqueId();
 		this.TL = new TimelineLite();
 	}
 	componentDidUpdate() {
-		console.log(this.bodyUniqueId);
 		if (this.props.isReady) {
 			console.log('play');
 			this.TL = new TimelineLite();
@@ -50,20 +56,27 @@ export class FinalSlide extends React.Component {
 				opacity: 0, 
 				ease: Elastic.easeOut.config(1, 0.2),
 				onComplete: () => {
-					console.log('congrats anim');
+					
 				}
 			}, 0.05)
 			.staggerFrom(`#body-${this.bodyUniqueId} > div`, 0.8, {
 				y: "-20%", 
 				opacity: 0, 
 				ease: Elastic.easeOut.config(1, 0.9)
-			}, 0.15, "-=1.5")
+			}, 0.1, "-=1.5")
 			this.TL.pause();
 			this.TL.play();
+
+			setTimeout(() => {
+				if (this.props.isSuccessful) {
+					this.props.onSuccess();
+				}
+			}, 2000);
 		}
 	}
 
 	render() {
+		console.log('render');
 		return (
 			<div className={slide__content}>
 				<h1 {...alphaSmall}>
@@ -99,6 +112,10 @@ export class FinalSlide extends React.Component {
 									`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. You don't need to "sling code" or whatever to have value. If you're not a developer that's cool.`
 								}
 							</p>
+						</div>
+					</div>
+					<div className={'row align-center'}>
+						<div className="column small-12 medium-8 large-7 xlarge-6 u-text-left">
 							<p className={ copy }>
 								{
 									this.props.isSuccessful ? 
