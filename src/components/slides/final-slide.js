@@ -76,76 +76,80 @@ export class FinalSlide extends React.Component {
 		
 		return (
 			<div 
-				className={slide__content}
+				className={`row align-center ${slide__content}`}
 				id="final-slide"
 			>
-				<h1 {...alphaSmall}>
-					{
-						this.props.isSuccessful ? 
-						<span id="conclusion-headline">
-								{spanSplit('Congrats!')}
-						</span>
-						: 
-						<span id="conclusion-headline">
-							{spanSplit('No worries!')}
-						</span>
-					}
-				</h1>
-				<div id={`body-${this.bodyUniqueId}`}>
-					<div className={'row align-center'}>
-						<div className="column small-12 u-text-center">
-							<p className={ gamma }>
-								{
-									this.props.isSuccessful ? 
-									'Looks like you ARE a real developer!' :
-									"It's ok to not be a developer."
-								}
-							</p>
-						</div>
-					</div>
-					<div className={'row align-center'}>
-						<div className="column small-12 medium-8 large-7 xlarge-6 u-text-left">
-							<p className={ copy }>
-								{
-									this.props.isSuccessful ? 
-									`Don't ever let anybody tell you that you're anything less than you are. No developer gets to be "more" developer than anybody else. Nobody gets to be the arbiter of "realness".`  :
-									`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. You don't need to "sling code" or whatever if you're not interested. If you're not a developer that's cool.`
-								}
-							</p>
-						</div>
-					</div>
-					<div className={'row align-center'}>
-						<div className="column small-12 medium-8 large-7 xlarge-6 u-text-left">
-							<p className={ copy }>
-								{
-									this.props.isSuccessful ? 
-									`Are you a real developer? 💩 yeah.` : 
-									`If you do want to be a developer though, hit the button down thataways 👇 and check out some awesome free resources at Codecademy.com.`									
-								}
-							</p>
-						</div>
-					</div>
-					<div className={'row align-center'}>
-						<div className={`column small-12 medium-11 large-8 ${buttonContainer}`}
-							style={{maxWidth: '38rem'}}
-						>
-							{
-								!this.props.isSuccessful ? 
-								<Button
-									href={"https://codecademy.com"}
+				<div className="column small-12">
+					<h1 {...alphaSmall}>
+						{
+							this.props.isSuccessful ? 
+							<span id="conclusion-headline">
+									{spanSplit('Congrats!')}
+							</span>
+							: 
+							<span id="conclusion-headline">
+								{spanSplit('No worries!')}
+							</span>
+						}
+					</h1>
+					<div id={`body-${this.bodyUniqueId} row align-center`}>
+						<div className="column small-12">
+							<div className={'row align-center'}>
+								<div className="column small-12 u-text-center">
+									<p className={ gamma }>
+										{
+											this.props.isSuccessful ? 
+											'Looks like you ARE a real developer!' :
+											"It's ok to not be a developer."
+										}
+									</p>
+								</div>
+							</div>
+							<div className={'row align-center'}>
+								<div className="column small-12 medium-8 large-7 xlarge-6 u-text-left">
+									<p className={ copy }>
+										{
+											this.props.isSuccessful ? 
+											`Don't ever let anybody tell you that you're anything less than you are. No developer gets to be "more" developer than anybody else. Nobody gets to be the arbiter of "realness".`  :
+											`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. You don't need to "sling code" or whatever if you're not interested. If you're not a developer that's cool.`
+										}
+									</p>
+								</div>
+							</div>
+							<div className={'row align-center'}>
+								<div className="column small-12 medium-8 large-7 xlarge-6 u-text-left">
+									<p className={ copy }>
+										{
+											this.props.isSuccessful ? 
+											`Are you a real developer? 💩 yeah.` : 
+											`If you do want to be a developer though, hit the button down thataways 👇 and check out some awesome free resources at Codecademy.com.`									
+										}
+									</p>
+								</div>
+							</div>
+							<div className={'row align-center'}>
+								<div className={`column small-12 medium-11 large-8 ${buttonContainer}`}
+									style={{maxWidth: '38rem'}}
 								>
-									Check out Codecademy 🚀
-								</Button> : null
-							}
-							<Button
-								href={
-									this.props.isSuccessful ? 
-									makeTweetIntent(`Woo I'm a 🌮 certified REAL developer 🌮 on ${window.location.origin}`) : 
-									makeTweetIntent(`Check if you're a 🌮 certified REAL developer 🌮 on ${window.location.origin}.%0A%0AVaccinated too.`)
-								}
-							>
-								Share on the twitters ✌️️
-							</Button>
+									{
+										!this.props.isSuccessful ? 
+										<Button
+											href={"https://codecademy.com"}
+										>
+											Check out Codecademy 🚀
+										</Button> : null
+									}
+									<Button
+										href={
+											this.props.isSuccessful ? 
+											makeTweetIntent(`Woo I'm a 🌮 certified REAL developer 🌮 on ${window.location.origin}`) : 
+											makeTweetIntent(`Check if you're a 🌮 certified REAL developer 🌮 on ${window.location.origin}.%0A%0AVaccinated too.`)
+										}
+									>
+										Share on the twitters ✌️️
+									</Button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
