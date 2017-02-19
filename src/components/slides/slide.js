@@ -12,7 +12,8 @@ const slides__slide = css({
 	display: "flex",
 	flexDirection: "column",
 	alignItems: "center",
-	justifyContent: "center"
+	justifyContent: "center",
+	overflow: "auto"
 });
 
 

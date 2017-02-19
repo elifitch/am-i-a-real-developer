@@ -12,6 +12,20 @@ import { uniqueId as loUniqueId } from 'lodash';
 import { yellowBg, purpleBg } from '../../style/color';
 
 const PLAY_ANIMATION = true;
+const slide__content = css({
+	height: 'calc(100vh - 8em)',
+	overflow: 'auto',
+	paddingTop: '12vmin',
+	paddingBottom: '1em'
+});
+const buttonContainer = css({
+	display: 'flex',
+	justifyContent: 'space-between',
+	flexDirection: 'column',
+	"@media screen and (min-width: 640px)": {
+		flexDirection: 'row',
+	},
+})
 
 export class FinalSlide extends React.Component {
 	constructor() {
@@ -51,7 +65,7 @@ export class FinalSlide extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className={slide__content}>
 				<h1 {...alphaSmall}>
 					{
 						this.props.isSuccessful ? 
@@ -66,38 +80,36 @@ export class FinalSlide extends React.Component {
 				</h1>
 				<div id={`body-${this.bodyUniqueId}`}>
 					<div className={'row align-center'}>
-						<div className="column small-10 u-text-center">
+						<div className="column small-12 u-text-center">
 							<p className={ gamma }>
 								{
 									this.props.isSuccessful ? 
 									'Looks like you ARE a real developer!' :
-									"Shock, horror! It is ok to not be a developer."
+									"It's ok to not be a developer."
 								}
 							</p>
 						</div>
 					</div>
 					<div className={'row align-center'}>
-						<div className="column small-10 medium-8 large-7 xlarge-6 u-text-left">
+						<div className="column small-12 medium-8 large-7 xlarge-6 u-text-left">
 							<p className={ copy }>
 								{
 									this.props.isSuccessful ? 
 									`Don't ever let anybody tell you that you're anything less than you are. No developer gets to be "more" developer than anybody else. Nobody gets to be the arbiter of "realness".`  :
-									`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. If you're not a developer that's cool.`
+									`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. You don't need to "sling code" or whatever to have value. If you're not a developer that's cool.`
 								}
 							</p>
-							{
-								!this.props.isSuccessful ? 
-								<p className={ copy }>
-									If you would like to be, hit the button down thattaways 👇🏾 and check out some awesome free resources at Codecademy.com.
-								</p> : 
-								<p className={ copy }>
-									Are you a real developer? 💩 yeah.
-								</p>
-							}
+							<p className={ copy }>
+								{
+									this.props.isSuccessful ? 
+									`Are you a real developer? 💩 yeah.` : 
+									`If you do want to be a developer though, hit the button down thattaways 👇🏾 and check out some awesome free resources at Codecademy.com.`									
+								}
+							</p>
 						</div>
 					</div>
 					<div className={'row align-center'}>
-						<div className="column small-12 medium-10 large-8 u-align-justify"
+						<div className={`column small-12 medium-11 large-8 ${buttonContainer}`}
 							style={{maxWidth: '38rem'}}
 						>
 							<Button

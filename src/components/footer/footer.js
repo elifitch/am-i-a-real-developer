@@ -11,16 +11,15 @@ const footer = css({
 	right: 0,
 	bottom: 0,
 	left: 0,
-	paddingTop: "2rem",
-	paddingBottom: "2rem",
+	paddingTop: "1rem",
+	paddingBottom: "1rem",
 	textAlign: "center",
 	color: "rgba(0,0,0,0.1)",
 	fontSize: "0.6em",
-	// medium: {
-	// 	color: "red"
-	// },
 	'@media screen and (min-width: 640px)': {
-		fontSize: "1em"
+		fontSize: "1em",
+		paddingTop: "2rem",
+		paddingBottom: "2rem",
 	}
 });
 
@@ -39,7 +38,7 @@ export function Footer() {
 					<a href="http://eli.wtf" className={ `${beta} ${footer__link}` } target="_blank">Eli.wtf</a>
 				</div>
 				<div className="column small-6 u-text-right">
-					<a href="http://eli.wtf" className={ `${beta} ${footer__link}` } target="_blank">@elifitch</a>
+					<a href="https://twitter.com/elifitch" className={ `${beta} ${footer__link}` } target="_blank">@elifitch</a>
 				</div>
 			</div>
 		</footer>

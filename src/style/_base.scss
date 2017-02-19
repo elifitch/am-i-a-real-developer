@@ -10,6 +10,7 @@ body {
 }
 html {
 	background-color: #eeeeee;
+	color: #222;
 	font-size: 16px;
 	@include breakpoint(medium) {
 		font-size: 20px;
