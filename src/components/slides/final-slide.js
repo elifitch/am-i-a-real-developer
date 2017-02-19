@@ -120,7 +120,7 @@ export class FinalSlide extends React.Component {
 								{
 									this.props.isSuccessful ? 
 									`Are you a real developer? 💩 yeah.` : 
-									`If you do want to be a developer though, hit the button down thataways 👇🏾 and check out some awesome free resources at Codecademy.com.`									
+									`If you do want to be a developer though, hit the button down thataways 👇 and check out some awesome free resources at Codecademy.com.`									
 								}
 							</p>
 						</div>
@@ -144,7 +144,7 @@ export class FinalSlide extends React.Component {
 									makeTweetIntent(`Check if you're a 🌮 certified REAL developer 🌮 on ${window.location.origin}.%0A%0AVaccinated too.`)
 								}
 							>
-								Share on the twitters ✌️🏾
+								Share on the twitters ✌️️
 							</Button>
 						</div>
 					</div>

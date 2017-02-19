@@ -1,17 +1,21 @@
 import { css } from 'glamor';
 import tinycolor from 'tinycolor2';
 
-// export const primary = "#8000FF"; 👌
-export const primary = "#00ffa5"; //happy green 👌
-// export const primary = "#FF00CF"; // magenta
-export const primaryRGB = tinycolor(primary).toRgb();
+const happyGreen = "#00ffa5";
+const electricGreen = "#ACFF40";
+const purple = "#8000FF";
+const lighterPurple = "#9738f5";
+const softBlue = "#00ccff";
+const magenta = "#FF00CF";
+const pureYellow = "#ffef2c";
+const darkerYellow = "#f9df07";
+const gold = "#ffdf2c";
 
-// export const yellow = "#ffef2c"; // pure yellow
-// export const yellow = "#ffdf2c"; // gold
-// export const secondary = "#f9df07"; // darker yellow 👌
-export const secondary = "#00ccff"; // soft blue 👌
-// export const secondary = "#ACFF40"; // electric green
-export const secondaryRGB = tinycolor(secondary).toRgb();
+export const primary = lighterPurple;
+export const primaryHSL = tinycolor(primary).toHsl();
+
+export const secondary = happyGreen;
+export const secondaryHSL = tinycolor(secondary).toHsl();
 
 export const lightGray = "#eeeeee";
 export const darkGray = "#333333";

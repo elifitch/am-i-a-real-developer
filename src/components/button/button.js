@@ -32,7 +32,7 @@ export function Button({
 			// pointerEvents: 'auto',
 			":hover": {
 				backgroundColor: primaryColor,
-				// color: lightGray
+				color: lightGray
 			},
 			// " &+ button, &+ a": {
 			" &+ button": {

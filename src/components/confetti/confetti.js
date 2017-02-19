@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'glamor';
 import { TweenMax, Power4 } from 'gsap';
-import { primaryRGB, secondaryRGB } from '../../style/color';
+import { primaryHSL, secondaryHSL } from '../../style/color';
 import * as physics2D from '../../vendor/physics-2d-plugin';
 
 import { 
@@ -111,14 +111,17 @@ export class Confetti extends React.Component {
 			let colorBase = {};
 
 			if (isEven) {
-				colorBase = evenPurple ? primaryRGB : secondaryRGB;
+				colorBase = evenPurple ? primaryHSL : secondaryHSL;
 				evenPurple = !evenPurple;
 			} else {
-				colorBase = oddPurple ? primaryRGB : secondaryRGB;
+				colorBase = oddPurple ? primaryHSL : secondaryHSL;
 				oddPurple = !oddPurple;
 			}
 			
-			const color = `rgb(${colorBase.r}, ${colorBase.g}, ${colorBase.b})`;
+			const foo = loRandom(colorBase.l, colorBase.l*0.9).toFixed(2);
+			console.log(foo*100)
+			// const color = `rgb(${colorBase.r}, ${colorBase.g}, ${colorBase.b})`;
+			const color = `hsl(${colorBase.h}, ${colorBase.s*100}%, ${foo*100}%)`;
 			
 			const tilt = loRandom(10, -10);
 			const tiltAngleIncremental = loRandom(0.07, 0.05);
