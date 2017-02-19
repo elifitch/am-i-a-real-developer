@@ -1,5 +1,5 @@
-import { css, after, before, merge } from 'glamor';
-import { threeDText, bgBorder } from '../mixins';
+import { css, after, before } from 'glamor';
+import { threeDText } from '../mixins';
 import { yellow, purple } from '../color';
 import { brandon } from '../typefaces';
 

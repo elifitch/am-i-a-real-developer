@@ -1,17 +1,14 @@
 import React from 'react';
-import { css, merge } from 'glamor';
+import { css } from 'glamor';
 import { Button } from '../button/button';
 import { 
 	alphaSmall, 
 	gamma, 
 	copy, 
-	borderTraceAnim 
 } from '../../style/components/type';
-import { TimelineLite, Elastic, Power0 } from 'gsap';
+import { TimelineLite, Elastic } from 'gsap';
 import { uniqueId as loUniqueId } from 'lodash';
-import { yellowBg, purpleBg } from '../../style/color';
 
-const PLAY_ANIMATION = true;
 const slide__content = css({
 	height: 'calc(100vh - 8em)',
 	overflow: 'auto',

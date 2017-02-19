@@ -8,7 +8,7 @@ import {
 	random as loRandom, 
 	uniqueId as loUniqueId, 
 	pull as loPull, 
-	debounce as debounce,
+	debounce,
 } from 'lodash';
 
 const canvasContainer = css({
@@ -25,19 +25,6 @@ const canvasStyles = css({
 	height: '100%',
 	pointerEvents: 'auto',
 });
-
-function getDegAngle(x0, y0, x1, y1) {
-	const y = y1 - y0;
-	const x = x1 - x0;
-	return Math.atan2(y, x) * (180 / Math.PI);
-}
-
-function addClass(el, className) {
-	el.classList.add(className);
-}
-function removeClass(el, className) {
-	el.classList.remove(className);
-}
 
 const DECAY = 2.5;
 const SPREAD = 50;

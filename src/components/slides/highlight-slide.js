@@ -1,5 +1,5 @@
 import React from 'react';
-import { css, merge } from 'glamor';
+import { merge } from 'glamor';
 import { Button } from '../button/button';
 import { 
 	alpha, 

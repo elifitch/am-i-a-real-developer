@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { css, merge as mergeStyles } from 'glamor';
-import { alpha, gamma } from '../../style/components/type';
-import { Button } from '../button/button';
 import { Slide } from './slide';
 import { HighlightSlide } from './highlight-slide';
 import { FinalSlide } from './final-slide';
