@@ -109,7 +109,7 @@ export class FinalSlide extends React.Component {
 								{
 									this.props.isSuccessful ? 
 									`Don't ever let anybody tell you that you're anything less than you are. No developer gets to be "more" developer than anybody else. Nobody gets to be the arbiter of "realness".`  :
-									`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. You don't need to "sling code" or whatever to have value. If you're not a developer that's cool.`
+									`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. You don't need to "sling code" or whatever if you're not interested. If you're not a developer that's cool.`
 								}
 							</p>
 						</div>
@@ -120,7 +120,7 @@ export class FinalSlide extends React.Component {
 								{
 									this.props.isSuccessful ? 
 									`Are you a real developer? 💩 yeah.` : 
-									`If you do want to be a developer though, hit the button down thattaways 👇🏾 and check out some awesome free resources at Codecademy.com.`									
+									`If you do want to be a developer though, hit the button down thataways 👇🏾 and check out some awesome free resources at Codecademy.com.`									
 								}
 							</p>
 						</div>
