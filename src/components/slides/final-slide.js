@@ -16,14 +16,6 @@ const slide__content = css({
 	paddingBottom: '1em',
 	// pointerEvents: 'auto'
 });
-const buttonContainer = css({
-	display: 'flex',
-	justifyContent: 'space-between',
-	flexDirection: 'column',
-	"@media screen and (min-width: 640px)": {
-		flexDirection: 'row',
-	},
-})
 
 export class FinalSlide extends React.Component {
 	constructor() {
@@ -73,7 +65,15 @@ export class FinalSlide extends React.Component {
 	}
 
 	render() {
-		console.log('render');
+		const buttonContainer = css({
+			display: 'flex',
+			justifyContent: this.props.isSuccessful ? 'center' : 'space-between',
+			flexDirection: 'column',
+			"@media screen and (min-width: 640px)": {
+				flexDirection: 'row',
+			},
+		});
+		
 		return (
 			<div 
 				className={slide__content}
@@ -129,15 +129,22 @@ export class FinalSlide extends React.Component {
 						<div className={`column small-12 medium-11 large-8 ${buttonContainer}`}
 							style={{maxWidth: '38rem'}}
 						>
+							{
+								!this.props.isSuccessful ? 
+								<Button
+									href={"https://codecademy.com"}
+								>
+									Check out Codecademy 🚀
+								</Button> : null
+							}
 							<Button
-								href={"http://eli.wtf"}
+								href={
+									this.props.isSuccessful ? 
+									makeTweetIntent(`Woo I'm a 🌮 certified REAL developer 🌮 on amiarealdeveloper.com`) : 
+									makeTweetIntent(`Check if you're a 🌮 certified REAL developer 🌮 on amiarealdeveloper.com.%0A%0AVaccinated too.`)
+								}
 							>
 								Share on the twitters ✌️🏾
-							</Button>
-							<Button
-								href={"http://eli.wtf"}
-							>
-								Check out Codecademy 🚀
 							</Button>
 						</div>
 					</div>
@@ -151,4 +158,8 @@ function spanSplit(string) {
 	return string.split('').map((char, index) => (
 		char === ' ' ? <span key={index}>&nbsp;</span> : <span key={index}>{char}</span>
 	));
+}
+
+function makeTweetIntent(text) {
+	return `https://twitter.com/intent/tweet?text=${text}`;
 }

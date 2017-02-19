@@ -9,10 +9,15 @@ body {
   font-family: 'brandon-grotesque', sans-serif;
 }
 html {
-	background-color: #eeeeee;
+	// background-color: #eeeeee;
+	background-color: #fafafa;
 	color: #222;
 	font-size: 16px;
 	@include breakpoint(medium) {
+		// font-size: 20px;
+		font-size: 16px;
+	}
+	@include breakpoint(xxlarge) {
 		font-size: 20px;
 	}
 	// @media screen and (min-width: $medium) {

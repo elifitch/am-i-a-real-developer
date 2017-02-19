@@ -8,7 +8,8 @@ export const purpleRGB = {
 };
 // export const yellow = "#f5e200";
 // export const yellow = "#fff81b";
-export const yellow = "#ffef2c"; // pure yellow
+// export const yellow = "#ffef2c"; // pure yellow
+export const yellow = "#f9df07"; // pure yellow
 // export const yellow = "#ffdf2c"; // gold
 export const goldRGB = {
 	r: 255,

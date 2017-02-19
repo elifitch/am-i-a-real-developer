@@ -30,7 +30,7 @@ export function Slide({
 		<div className="row align-center">
 			<div className="column small-12 large-6">
 				<h2 className={ beta }>{ title }</h2>
-				<p className={ `${copy} u-text-left u-inline-block` }>{ question }</p>
+				<p className={ `${copy} u-text-center u-inline-block` }>{ question }</p>
 				<div>
 					<Button
 						onClick={ () => advance(true) }
