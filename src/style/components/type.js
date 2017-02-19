@@ -192,7 +192,7 @@ export const zeta = css(
 )
 
 export const copy = css({
-	fontFamily: 'Pinopolis-Regular',
+	fontFamily: ['pinopolis', 'monaco', 'monospace'],
 	lineHeight: 1.4,
 	marginBottom: "1.5rem"
 })

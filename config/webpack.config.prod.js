@@ -116,12 +116,14 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.svg$/
         ],
         loader: 'url',
         query: {
-          limit: 10000,
+          // limit: 10000,
+          limit: 50000000,
           name: 'static/media/[name].[hash:8].[ext]'
         }
       },
@@ -144,10 +146,15 @@ module.exports = {
       // tags. If you use code splitting, however, any async bundles will still
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
+      // {
+      //   test: /\.css$/,
+      //   loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss')
+      //   // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      // },
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss')
-        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+        test: /\.scss$/,
+        // loader: 'style!scss?importLoaders=1!postcss'
+        loaders: ["style", "css", "sass"]
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -165,7 +172,10 @@ module.exports = {
       }
     ]
   },
-  
+  sassLoader: {
+    // includePaths: [path.resolve(__dirname, "../node_modules/foundation-sites/scss")]
+    includePaths: [paths.foundation]
+  },
   // We use PostCSS for autoprefixing only.
   postcss: function() {
     return [

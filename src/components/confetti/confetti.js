@@ -18,15 +18,13 @@ const canvasContainer = css({
 	width: '100%',
 	height: '100%',
 	zIndex: -1,
-	// pointerEvents: 'auto',
 });
 const canvasStyles = css({
 	width: '100%',
 	height: '100%',
-	// pointerEvents: 'auto',
 });
 
-const DECAY = 2.5;
+const DECAY = 3.5;
 const SPREAD = 50;
 const GRAVITY = 1200;
 

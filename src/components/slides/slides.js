@@ -3,6 +3,7 @@ import { css, merge as mergeStyles } from 'glamor';
 import { Slide } from './slide';
 import { HighlightSlide } from './highlight-slide';
 import { FinalSlide } from './final-slide';
+import { questions } from '../../questions.js'
 
 const slides = css({
 	label: "slides",
@@ -19,27 +20,6 @@ let slides__carrier = css({
 let slides__translation = css({
 	transform: `translateY(0%)`
 });
-
-const questionList = [
-	{
-		question: "Do you write code?"
-	},
-	{
-		question: "Do you build websites?"
-	},
-	{
-		question: "Are you a chemical that is used to develop photographs?"
-	},
-	{
-		question: "Are you a person or company that builds and sells houses or other buildings on a piece of land?"
-	},
-	{
-		question: "Are you a person who lays out, at full size, the lines of a ship or vessel and prepares templates from them?"
-	},
-	{
-		question: "Do you make software?"
-	},
-];
 
 export class Slides extends Component {
 	constructor(props) {
@@ -61,9 +41,9 @@ export class Slides extends Component {
 		if (this.state.slide === 0) {
 			this.props.makeHeaderVisible();
 		}
-		if (this.state.slide < questionList.length + 1) {
+		if (this.state.slide < questions.length + 1) {
 			const nextSlide = this.state.slide + 1;
-			const translation = -(100 / ((questionList.length+2) / nextSlide));
+			const translation = -(100 / ((questions.length+2) / nextSlide));
 			slides__translation = css({
 				transform: `translateY(${translation}%)`
 			});
@@ -75,18 +55,18 @@ export class Slides extends Component {
 			};
 			this.setState(newState);
 		}
-		if (this.state.slide === questionList.length - 1) {
-			console.log('final');
+		if (this.state.slide === questions.length - 1) {
+			console.log('final question');
 		}
-		if (this.state.slide === questionList.length) {
-			console.log('congrats / failure');
+		if (this.state.slide === questions.length) {
+			console.log('final slide');
 		}
 	}
 
 	generateQuestions() {
 		const self = this;
 		let questionSlides = [];
-		questionList.forEach(function(question, index) {
+		questions.forEach(function(question, index) {
 			questionSlides.push(
 				<Slide
 					advance={ self.advance }
@@ -124,7 +104,7 @@ export class Slides extends Component {
 				>	
 					<FinalSlide
 						isSuccessful={this.state.yeps > 0}
-						isReady={this.state.slide === questionList.length + 1}
+						isReady={this.state.slide === questions.length + 1}
 						onSuccess={this.props.onSuccess}
 					/>
 				</Slide>
