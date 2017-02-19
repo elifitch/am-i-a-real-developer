@@ -2,7 +2,7 @@
   "name": "am-i-a-real-developer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://elifitch.github.io/am-i-a-real-developer",
+  "homepage": "http://elifitch.github.io",
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
