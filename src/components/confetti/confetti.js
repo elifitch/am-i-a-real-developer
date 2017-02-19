@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'glamor';
 import { TweenMax, Power4 } from 'gsap';
-import { purpleRGB, goldRGB } from '../../style/color';
+import { primaryRGB, secondaryRGB } from '../../style/color';
 import * as physics2D from '../../vendor/physics-2d-plugin';
 
 import { 
@@ -113,10 +113,10 @@ export class Confetti extends React.Component {
 			let colorBase = {};
 
 			if (isEven) {
-				colorBase = evenPurple ? purpleRGB : goldRGB;
+				colorBase = evenPurple ? primaryRGB : secondaryRGB;
 				evenPurple = !evenPurple;
 			} else {
-				colorBase = oddPurple ? purpleRGB : goldRGB;
+				colorBase = oddPurple ? primaryRGB : secondaryRGB;
 				oddPurple = !oddPurple;
 			}
 			

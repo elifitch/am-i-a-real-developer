@@ -16,7 +16,7 @@ import {
 } from '../../style/components/type';
 import { TimelineLite, Elastic, Power0 } from 'gsap';
 import { uniqueId as loUniqueId } from 'lodash';
-import { yellowBg, purpleBg } from '../../style/color';
+import { secondaryBg, primaryBg } from '../../style/color';
 
 const PLAY_ANIMATION = true;
 
@@ -89,16 +89,16 @@ export class HighlightSlide extends React.Component {
 									{spanSplit(this.props.secondaryContent)}
 								</span>
 								<div className="alpha__borders" {...alpha__borders}>
-										<span {...merge(purpleBg, alpha__borderTB, alpha__borderTop)}></span>
-										<span {...merge(purpleBg, alpha__borderRL, alpha__borderRight)}></span>
-										<span {...merge(purpleBg, alpha__borderTB, alpha__borderBottom)}></span>
-										<span {...merge(purpleBg, alpha__borderRL, alpha__borderLeft)}></span>
+										<span {...merge(primaryBg, alpha__borderTB, alpha__borderTop)}></span>
+										<span {...merge(primaryBg, alpha__borderRL, alpha__borderRight)}></span>
+										<span {...merge(primaryBg, alpha__borderTB, alpha__borderBottom)}></span>
+										<span {...merge(primaryBg, alpha__borderRL, alpha__borderLeft)}></span>
 								</div>
 								<div className="alpha__borders" {...alpha__borders}>
-										<span {...merge(yellowBg, alpha__borderTB, alpha__borderTop)}></span>
-										<span {...merge(yellowBg, alpha__borderRL, alpha__borderRight)}></span>
-										<span {...merge(yellowBg, alpha__borderTB, alpha__borderBottom)}></span>
-										<span {...merge(yellowBg, alpha__borderRL, alpha__borderLeft)}></span>
+										<span {...merge(secondaryBg, alpha__borderTB, alpha__borderTop)}></span>
+										<span {...merge(secondaryBg, alpha__borderRL, alpha__borderRight)}></span>
+										<span {...merge(secondaryBg, alpha__borderTB, alpha__borderBottom)}></span>
+										<span {...merge(secondaryBg, alpha__borderRL, alpha__borderLeft)}></span>
 								</div>
 							</span>
 						: <span>{spanSplit(this.props.primaryContent)}</span>

@@ -2,7 +2,6 @@ import React from 'react';
 import { css } from 'glamor';
 import { beta, copy } from '../../style/components/type';
 import { Button } from '../button/button';
-// import { yellow } from '../../style/color';
 
 const slides__slide = css({
 	label: "slides__slide",

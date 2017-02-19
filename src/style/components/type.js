@@ -1,9 +1,7 @@
 import { css, after, before } from 'glamor';
 import { threeDText } from '../mixins';
-import { yellow, purple } from '../color';
+import { secondary, primary } from '../color';
 import { brandon } from '../typefaces';
-
-// const alphaBorder = bgBorder(purple, '0.1em');
 
 const borderTrace = css.keyframes('border-trace', {
   //depends on 740x320 ratio
@@ -52,19 +50,19 @@ export const alpha = css(
 		textTransform: 'uppercase',
 		letterSpacing: '0.05em',
 		textAlign: 'center',
-		color: purple,
+		color: primary,
 		position: 'relative',
 		padding: '0.5em',
-		textShadow: threeDText(yellow, 3),
+		textShadow: threeDText(secondary, 3),
 		whiteSpace: 'nowrap',
 		marginBottom: "calc(1.5rem + 0.1em + 0.1em)",
 		"@media screen and (min-width: 640px)": {
 			fontSize: '4em',
-			textShadow: threeDText(yellow, 10)
+			textShadow: threeDText(secondary, 10)
 		},
 		"@media screen and (min-width: 769px)": {
 			fontSize: '5em',
-			textShadow: threeDText(yellow, 10)
+			textShadow: threeDText(secondary, 10)
 		},
 		" span": {
 			display: "inline-block",
@@ -135,20 +133,20 @@ export const alphaSmall = css(
 		textTransform: 'uppercase',
 		letterSpacing: '0.05em',
 		textAlign: 'center',
-		color: purple,
+		color: primary,
 		position: 'relative',
 		// paddingTop: '0.5em',
 		// paddingBottom: '0.5em',
-		textShadow: threeDText(yellow, 5),
+		textShadow: threeDText(secondary, 5),
 		whiteSpace: 'nowrap',
 		marginBottom: "calc(1.5rem + 0.1em + 0.1em)",
 		"@media screen and (min-width: 640px)": {
 			fontSize: '3.5em',
-			textShadow: threeDText(yellow, 10)
+			textShadow: threeDText(secondary, 10)
 		},
 		"@media screen and (min-width: 768px)": {
 			fontSize: '5em',
-			textShadow: threeDText(yellow, 10)
+			textShadow: threeDText(secondary, 10)
 		},
 		" span": {
 			display: "inline-block",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, merge } from 'glamor';
 import { alpha } from "../../style/components/type";
-import { yellow, } from "../../style/color";
+import { secondary } from "../../style/color";
 import { threeDText } from "../../style/mixins";
 
 let header = css({
@@ -27,7 +27,7 @@ let header__logo = css(
 	{
 		'&&': {
 			label: "header__logo",
-			textShadow: threeDText(yellow, 4)
+			textShadow: threeDText(secondary, 4)
 		}
 	}
 );

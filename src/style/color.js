@@ -1,28 +1,22 @@
 import { css } from 'glamor';
+import tinycolor from 'tinycolor2';
 
-export const purple = "#8000FF";
-export const purpleRGB = {
-	r: 128,
-	g: 0,
-	b: 255
-};
-// export const yellow = "#f5e200";
-// export const yellow = "#fff81b";
+// export const purple = "#8000FF"; 👌
+export const primary = "#00ffa5"; //electric green 👌
+export const primaryRGB = tinycolor(primary).toRgb();
+
 // export const yellow = "#ffef2c"; // pure yellow
-export const yellow = "#f9df07"; // pure yellow
+// export const yellow = "#f9df07"; // darker yellow 👌
 // export const yellow = "#ffdf2c"; // gold
-export const goldRGB = {
-	r: 255,
-	g: 223,
-	b: 44
-};
-// export const yellow = "#ffd52c"; // darker gold
+export const secondary = "#00ccff"; // soft blue 👌
+export const secondaryRGB = tinycolor(secondary).toRgb();
+
 export const lightGray = "#eeeeee";
 export const darkGray = "#333333";
 
-export const purpleBg = css({
-	backgroundColor: purple
+export const primaryBg = css({
+	backgroundColor: primary
 });
-export const yellowBg = css({
-	backgroundColor: yellow
+export const secondaryBg = css({
+	backgroundColor: secondary
 });

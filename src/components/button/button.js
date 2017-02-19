@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'glamor';
-import { purple, darkGray, lightGray } from '../../style/color';
+import { primary, darkGray, lightGray } from '../../style/color';
 import { pinopolis } from "../../style/typefaces";
 
 export function Button({
@@ -9,7 +9,7 @@ export function Button({
 	theme,
 	children
 }) {
-	const primaryColor = theme ? theme : purple;
+	const primaryColor = theme ? theme : primary;
 	const buttonStyle = css(
 		pinopolis,
 		{
@@ -32,7 +32,7 @@ export function Button({
 			// pointerEvents: 'auto',
 			":hover": {
 				backgroundColor: primaryColor,
-				color: lightGray
+				// color: lightGray
 			},
 			// " &+ button, &+ a": {
 			" &+ button": {

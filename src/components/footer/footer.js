@@ -1,10 +1,7 @@
 import React from 'react';
 import { css } from 'glamor';
-// import { mq } from '../../style/mixins';
-import { purple } from '../../style/color';
+import { primary } from '../../style/color';
 import { beta } from "../../style/components/type";
-
-// const medium = mq("medium");
 
 const footer = css({
 	position: "absolute",
@@ -27,7 +24,7 @@ const footer__link = css({
 	transition: 'color 0.2s',
 	// pointerEvents: 'auto',
 	':hover': {
-		color: purple
+		color: primary
 	}
 })
 
