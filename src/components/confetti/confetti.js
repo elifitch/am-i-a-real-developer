@@ -7,7 +7,8 @@ import * as physics2D from '../../vendor/physics-2d-plugin';
 import { 
 	random as loRandom, 
 	uniqueId as loUniqueId, 
-	pull as loPull 
+	pull as loPull, 
+	debounce as debounce,
 } from 'lodash';
 
 const canvasContainer = css({
@@ -17,10 +18,12 @@ const canvasContainer = css({
 	width: '100%',
 	height: '100%',
 	zIndex: -1,
+	pointerEvents: 'auto',
 });
 const canvasStyles = css({
 	width: '100%',
 	height: '100%',
+	pointerEvents: 'auto',
 });
 
 function getDegAngle(x0, y0, x1, y1) {
@@ -60,6 +63,25 @@ export class Confetti extends React.Component {
 		this.setCanvasSize = this.setCanvasSize.bind(this);
 	}
 
+	shouldComponentUpdate(nextProps) {
+		if (this.props.shoot !== nextProps.shoot) {
+			const canvas = this.refs.canvas;
+
+			this.shoot = true;
+			this.shootConfetti();
+			setTimeout(() => {
+				this.shoot = false;
+				canvas.addEventListener('mousedown', this.handleMousedown);
+				canvas.addEventListener('mouseup', this.handleMouseup);
+				canvas.addEventListener('touchstart', this.handleMousedown);
+				canvas.addEventListener('touchend', this.handleMouseup);
+			}, 2000);
+
+			return true;
+		}
+		return false;
+	}
+
 	componentDidMount() {
 		const canvas = this.refs.canvas;
 		this.dpr = window.devicePixelRatio || 1;
@@ -68,22 +90,17 @@ export class Confetti extends React.Component {
 
 		TweenMax.ticker.addEventListener('tick', this.renderCanvas);
 	
-		canvas.addEventListener('mousedown', this.handleMousedown);
-		canvas.addEventListener('mouseup', this.handleMouseup);
-		canvas.addEventListener('touchstart', this.handleMousedown);
-		canvas.addEventListener('touchend', this.handleMouseup);
-		canvas.addEventListener('resize', this.setCanvasSize);
+		window.addEventListener('resize', debounce(this.setCanvasSize, 200));
 
 		this.setCanvasSize();
-		this.shootConfetti();
 	}
 
 	handleMousedown() {
-		// this.shoot = true;
+		this.shoot = true;
 	}
 
 	handleMouseup() {
-		// this.shoot = false;
+		this.shoot = false;
 	}
 
 	setCanvasSize() {
@@ -122,8 +139,10 @@ export class Confetti extends React.Component {
 				[id]: {
 					angle: isEven ? (angle + 20) : (angle - 20),
 					velocity,
-					x: isEven ? canvasW * .1 : canvasW * .9,
-					y: canvasH * .9,
+					// x: isEven ? canvasW * .1 : canvasW * .9,
+					x: isEven ? 0 : canvasW,
+					// y: canvasH * .9,
+					y: canvasH,
 					r,
 					d,
 					color,
@@ -210,7 +229,7 @@ export class Confetti extends React.Component {
 	shootConfetti() {
 		const canvas = this.refs.canvas;
 		requestAnimationFrame(this.shootConfetti);
-		if (this.props.shoot) {
+		if (this.shoot) {
 			this.addConfettiParticles(4, 270, 5000, canvas.width, canvas.height);
 		}
 	}

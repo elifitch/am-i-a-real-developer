@@ -20,11 +20,6 @@ import { yellowBg, purpleBg } from '../../style/color';
 
 const PLAY_ANIMATION = true;
 
-const fadeIn = css({
-	// transition: "opacity 0.15s"
-	// opacity: 1
-});
-
 export class HighlightSlide extends React.Component {
 	constructor() {
 		super();
@@ -73,7 +68,7 @@ export class HighlightSlide extends React.Component {
 					ease: Elastic.easeOut.config(1, 0.9)
 				}, 0.2, "-=0.5")
 
-
+				// TL.pause();
 			TL.play();
 		}
 	}
@@ -110,17 +105,17 @@ export class HighlightSlide extends React.Component {
 					}
 				</h1>
 				<div id={`body-${this.bodyUniqueId}`}>
-					<div className={`row align-center ${fadeIn}`}>
+					<div className={'row align-center'}>
 						<div className="column small-10 medium-8 large-6 u-text-left">
 							<p className={ copy }>
 								{this.props.copy}
 							</p>
 						</div>
 					</div>
-					<div {...fadeIn}>
+					<div>
 						{this.props.buttonText ? 
 							<Button
-								onClick={ () => this.props.advance(true) }
+								onClick={ () => this.props.advance(false) }
 							>
 								Take the Quiz!
 							</Button> 
@@ -134,6 +129,6 @@ export class HighlightSlide extends React.Component {
 
 function spanSplit(string) {
 	return string.split('').map((char, index) => (
-		char === ' ' ? <span key={index} {...fadeIn}>&nbsp;</span> : <span key={index} {...fadeIn}>{char}</span>
+		char === ' ' ? <span key={index}>&nbsp;</span> : <span key={index}>{char}</span>
 	));
 }

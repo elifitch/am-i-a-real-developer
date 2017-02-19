@@ -9,14 +9,16 @@ let header = css({
 	position: "absolute",
 	width: "100%",
 	top: 0,
-	paddingTop: "2rem",
-	paddingBottom: "2rem",
+	paddingTop: "1rem",
+	paddingBottom: "1rem",
 	textAlign: "center",
-	fontSize: "0.2em",
+	fontSize: "0.6em",
 	opacity: 1,
 	transition: "opacity 1s",
 	'@media screen and (min-width: 640px)': {
-		fontSize: "0.3em"
+		fontSize: "0.3em",
+		paddingTop: "2rem",
+		paddingBottom: "2rem",
 	}
 });
 

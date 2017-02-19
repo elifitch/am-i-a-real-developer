@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  pointer-events: none;
 }
 
 body {
@@ -10,6 +11,7 @@ body {
 }
 html {
 	background-color: #eeeeee;
+	color: #222;
 	font-size: 16px;
 	@include breakpoint(medium) {
 		font-size: 20px;

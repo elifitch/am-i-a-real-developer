@@ -17,6 +17,10 @@ const vignette = css({
 	pointerEvents: "none"
 });
 
+const noClick = css({
+	pointerEvents: 'none'
+})
+
 class App extends Component {
 	constructor() {
 		super();
@@ -46,7 +50,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
+			<div {...noClick}>
 				<Header
 					visible={ this.state.headerVisible }
 				/>
@@ -54,6 +58,7 @@ class App extends Component {
 				<Slides
 					slideIndex={ 0 }
 					makeHeaderVisible={ this.makeHeaderVisible }
+					onSuccess={this.startConfetti}
 				/>
 
 				<Confetti 
