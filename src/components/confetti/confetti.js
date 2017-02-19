@@ -18,12 +18,12 @@ const canvasContainer = css({
 	width: '100%',
 	height: '100%',
 	zIndex: -1,
-	pointerEvents: 'auto',
+	// pointerEvents: 'auto',
 });
 const canvasStyles = css({
 	width: '100%',
 	height: '100%',
-	pointerEvents: 'auto',
+	// pointerEvents: 'auto',
 });
 
 const DECAY = 2.5;
@@ -58,10 +58,15 @@ export class Confetti extends React.Component {
 			this.shootConfetti();
 			setTimeout(() => {
 				this.shoot = false;
+				const finalSlide = document.getElementById('final-slide');
 				canvas.addEventListener('mousedown', this.handleMousedown);
 				canvas.addEventListener('mouseup', this.handleMouseup);
 				canvas.addEventListener('touchstart', this.handleMousedown);
 				canvas.addEventListener('touchend', this.handleMouseup);
+				finalSlide.addEventListener('mousedown', this.handleMousedown);
+				finalSlide.addEventListener('mouseup', this.handleMouseup);
+				finalSlide.addEventListener('touchstart', this.handleMousedown);
+				finalSlide.addEventListener('touchend', this.handleMouseup);
 			}, 2000);
 
 			return true;
@@ -124,7 +129,8 @@ export class Confetti extends React.Component {
 			const id = loUniqueId();
 			const sprite = {
 				[id]: {
-					angle: isEven ? (angle + 20) : (angle - 20),
+					// angle: isEven ? (angle + 20) : (angle - 20),
+					angle: isEven ? (angle + 30) : (angle - 30),
 					velocity,
 					// x: isEven ? canvasW * .1 : canvasW * .9,
 					x: isEven ? 0 : canvasW,
@@ -217,7 +223,7 @@ export class Confetti extends React.Component {
 		const canvas = this.refs.canvas;
 		requestAnimationFrame(this.shootConfetti);
 		if (this.shoot) {
-			this.addConfettiParticles(4, 270, 5000, canvas.width, canvas.height);
+			this.addConfettiParticles(10, 270, 5000, canvas.width, canvas.height);
 		}
 	}
 

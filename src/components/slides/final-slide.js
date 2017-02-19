@@ -14,7 +14,7 @@ const slide__content = css({
 	overflow: 'auto',
 	paddingTop: '12vmin',
 	paddingBottom: '1em',
-	pointerEvents: 'auto'
+	// pointerEvents: 'auto'
 });
 const buttonContainer = css({
 	display: 'flex',
@@ -75,7 +75,10 @@ export class FinalSlide extends React.Component {
 	render() {
 		console.log('render');
 		return (
-			<div className={slide__content}>
+			<div 
+				className={slide__content}
+				id="final-slide"
+			>
 				<h1 {...alphaSmall}>
 					{
 						this.props.isSuccessful ? 

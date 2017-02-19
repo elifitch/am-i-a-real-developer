@@ -24,7 +24,8 @@ const footer = css({
 });
 
 const footer__link = css({
-	'transition': 'color 0.2s',
+	transition: 'color 0.2s',
+	// pointerEvents: 'auto',
 	':hover': {
 		color: purple
 	}

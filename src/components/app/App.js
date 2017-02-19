@@ -17,10 +17,6 @@ const vignette = css({
 	pointerEvents: "none"
 });
 
-const noClick = css({
-	pointerEvents: 'none'
-})
-
 class App extends Component {
 	constructor() {
 		super();
@@ -50,7 +46,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div {...noClick}>
+			<div>
 				<Header
 					visible={ this.state.headerVisible }
 				/>

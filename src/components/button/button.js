@@ -29,7 +29,7 @@ export function Button({
 			cursor: "pointer",
 			minWidth: "8em",
 			marginBottom: "1em",
-			pointerEvents: 'auto',
+			// pointerEvents: 'auto',
 			":hover": {
 				backgroundColor: primaryColor,
 				color: lightGray
