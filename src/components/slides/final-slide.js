@@ -39,16 +39,12 @@ export class FinalSlide extends React.Component {
 	}
 	componentDidUpdate() {
 		if (this.props.isReady) {
-			console.log('play');
 			this.TL = new TimelineLite();
 			this.TL.staggerFrom('#conclusion-headline span', 2, {
 				delay: 1, 
 				y: "-40%", 
 				opacity: 0, 
-				ease: Elastic.easeOut.config(1, 0.2),
-				onComplete: () => {
-					
-				}
+				ease: Elastic.easeOut.config(1, 0.2)
 			}, 0.05)
 			.staggerFrom(`#final-slide-body > div > div`, 0.8, {
 				y: "-20%", 

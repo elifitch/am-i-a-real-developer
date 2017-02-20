@@ -13,7 +13,6 @@ const footer = css({
 	textAlign: "center",
 	color: "rgba(0,0,0,0.1)",
 	fontSize: "0.6em",
-	zIndex: -1,
 	'@media screen and (min-width: 640px)': {
 		fontSize: "1em",
 		paddingTop: "2rem",

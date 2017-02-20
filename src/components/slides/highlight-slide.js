@@ -35,33 +35,28 @@ export class HighlightSlide extends React.Component {
 		// run gsap anim
 		if (PLAY_ANIMATION) {
 			const TL = new TimelineLite();
-			TL.staggerFrom('#intro-headline span', 0.5, {
-					delay: 0.5, 
-					y: "-40%", 
-					opacity: 0, 
-					ease: Elastic.easeOut.config(1, 0.5),
-					onComplete: () => {
-						setTimeout(() => {
-							// this.setState({animateBorder: true})
-						}, 200)
-					}
+			TL.staggerFrom('#intro-headline span', 0.8, {
+					delay: 1, 
+				y: "-40%", 
+				opacity: 0, 
+				ease: Elastic.easeOut.config(1, 0.5)
 				}, 0.05)
 				.from('.alpha__borders > span:nth-child(1)', 0.4, {
 					x: "-100%",
 					ease: Power0.easeNone
-				}, '-=0.5')
+				}, '-=0.8')
 				.from('.alpha__borders > span:nth-child(2)', 0.3, {
 					y: "-100%",
 					ease: Power0.easeNone
-				})
+				}, '-=0.4')
 				.from('.alpha__borders > span:nth-child(3)', 0.4, {
 					x: "100%",
 					ease: Power0.easeNone
-				})
+				}, '-=0.1')
 				.from('.alpha__borders > span:nth-child(4)', 0.3, {
 					y: "100%",
 					ease: Power0.easeNone
-				})
+				}, '-=0')
 				.staggerFrom(`#body-${this.bodyUniqueId} > div`, 0.8, {
 					y: "-30%", 
 					opacity: 0, 
