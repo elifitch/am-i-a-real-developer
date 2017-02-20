@@ -7,7 +7,6 @@ import {
 	copy, 
 } from '../../style/components/type';
 import { TimelineLite, Elastic } from 'gsap';
-import { uniqueId as loUniqueId } from 'lodash';
 
 const slide__content = css({
 	height: 'calc(100vh - 16em)',
@@ -36,7 +35,6 @@ export class FinalSlide extends React.Component {
 	}
 	componentWillMount() {
 		// dunno why can't pass element as ref to anim, need get hacky w/ ids
-		this.bodyUniqueId = loUniqueId();
 		this.TL = new TimelineLite();
 	}
 	componentDidUpdate() {
@@ -52,7 +50,7 @@ export class FinalSlide extends React.Component {
 					
 				}
 			}, 0.05)
-			.staggerFrom(`#body-${this.bodyUniqueId} > div`, 0.8, {
+			.staggerFrom(`#final-slide-body > div > div`, 0.8, {
 				y: "-20%", 
 				opacity: 0, 
 				ease: Elastic.easeOut.config(1, 0.9)
@@ -96,7 +94,7 @@ export class FinalSlide extends React.Component {
 							</span>
 						}
 					</h1>
-					<div id={`body-${this.bodyUniqueId} row align-center`}>
+					<div id={'final-slide-body'} className={'row align-center'}>
 						<div className="column small-12">
 							<div className={'row align-center'}>
 								<div className="column small-12 u-text-center">
