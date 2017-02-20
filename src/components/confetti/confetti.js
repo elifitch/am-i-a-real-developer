@@ -118,10 +118,8 @@ export class Confetti extends React.Component {
 				oddPurple = !oddPurple;
 			}
 			
-			const foo = loRandom(colorBase.l, colorBase.l*0.9).toFixed(2);
-			console.log(foo*100)
-			// const color = `rgb(${colorBase.r}, ${colorBase.g}, ${colorBase.b})`;
-			const color = `hsl(${colorBase.h}, ${colorBase.s*100}%, ${foo*100}%)`;
+			const l = loRandom(colorBase.l, colorBase.l*0.9).toFixed(2);
+			const color = `hsl(${colorBase.h}, ${colorBase.s*100}%, ${l*100}%)`;
 			
 			const tilt = loRandom(10, -10);
 			const tiltAngleIncremental = loRandom(0.07, 0.05);

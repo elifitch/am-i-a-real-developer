@@ -101,6 +101,7 @@ export class Slides extends Component {
 
 				<Slide
 					key={"final"}
+					contentSlide={true}
 				>	
 					<FinalSlide
 						isSuccessful={this.state.yeps > 0}

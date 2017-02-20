@@ -9,12 +9,13 @@ import {
 import { TimelineLite, Elastic } from 'gsap';
 
 const slide__content = css({
-	height: 'calc(100vh - 16em)',
+	height: 'calc(100vh - 14em)',
 	overflow: 'auto',
-	'-webkit-overflow-scrolling': 'touch',
-	// pointerEvents: 'auto'
+	WebkitOverflowScrolling: 'touch',
+	marginTop: '5rem',
 	'@media screen and (min-width: 640px)': {
 		height: 'calc(100vh - 8em)',
+		marginTop: 0,
 		paddingTop: '12vmin',
 		paddingBottom: '1em',
 	}
@@ -39,6 +40,11 @@ export class FinalSlide extends React.Component {
 	}
 	componentDidUpdate() {
 		if (this.props.isReady) {
+			if (window.ga) {
+				const page = this.props.isSuccessful ? '/yep' : '/nope';
+				window.ga('send', 'pageview', page);
+				console.log(page);
+			}
 			this.TL = new TimelineLite();
 			this.TL.staggerFrom('#conclusion-headline span', 2, {
 				delay: 1, 
@@ -108,7 +114,7 @@ export class FinalSlide extends React.Component {
 									<p className={ copy }>
 										{
 											this.props.isSuccessful ? 
-											`Don't ever let anybody tell you that you're anything less than you are. No developer gets to be "more" developer than anybody else. Nobody gets to be the arbiter of "realness".`  :
+											`Don't ever let anybody tell you that you're anything less than you are. Nobody gets to be the arbiter of "realness". No developer gets to be "more" developer than anybody else, no matter what language or tools they use.`  :
 											`Even if you're not a developer, don't let people take you down a peg by defining for you what you know yourself to be. You don't need to "sling code" or whatever if you're not interested. If you're not a developer that's cool.`
 										}
 									</p>

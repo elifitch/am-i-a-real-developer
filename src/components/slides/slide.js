@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from 'glamor';
+import { css, merge } from 'glamor';
 import { beta, copy } from '../../style/components/type';
 import { Button } from '../button/button';
 
@@ -20,6 +20,7 @@ export function Slide({
 	title,
 	question,
 	children,
+	contentSlide,
 	advance
 }) {
 	const content = children 
@@ -34,20 +35,26 @@ export function Slide({
 					<Button
 						onClick={ () => advance(true) }
 					>
-						Yes
+						Yep
 					</Button>
 					<Button
 						onClick={ () => advance(false) }
 					>
-						No
+						Nope
 					</Button>
 				</div>
 			</div>
 		</div>
 
+	const justify = contentSlide ? css({
+		justifyContent: "flex-start",
+		'@media screen and (min-width: 640px)': {
+			justifyContent: "center",
+		}
+	}) : null;
 
 	return(
-		<div { ...slides__slide }>
+		<div { ...merge(slides__slide, justify) }>
 			<div className="u-full-width">
 				<div className="row align-center">
 					<div className="column small-12 u-text-center">

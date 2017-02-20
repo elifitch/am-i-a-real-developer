@@ -18,23 +18,20 @@ export function Button({
 			fontSize: "1em",
 			borderWidth: `0.25em`,
 			borderStyle: "solid",
-			// borderColor: `${purple}`,
 			borderColor: primaryColor,
 			borderRadius: "2px",
 			padding: "1em",
-			transition: "all 0.2s",
+			transition: "background-color 0.2s, color 0.2s",
 			color: darkGray,
 			fontWeight: "bold",
 			letterSpacing: "0.05em",
 			cursor: "pointer",
 			minWidth: "8em",
 			marginBottom: "1em",
-			// pointerEvents: 'auto',
 			":hover": {
 				backgroundColor: primaryColor,
 				color: lightGray
 			},
-			// " &+ button, &+ a": {
 			" &+ button": {
 				marginLeft: "2em"
 			}
