@@ -10,11 +10,15 @@ import { TimelineLite, Elastic } from 'gsap';
 import { uniqueId as loUniqueId } from 'lodash';
 
 const slide__content = css({
-	height: 'calc(100vh - 8em)',
+	height: 'calc(100vh - 16em)',
 	overflow: 'auto',
-	paddingTop: '12vmin',
-	paddingBottom: '1em',
+	'-webkit-overflow-scrolling': 'touch',
 	// pointerEvents: 'auto'
+	'@media screen and (min-width: 640px)': {
+		height: 'calc(100vh - 8em)',
+		paddingTop: '12vmin',
+		paddingBottom: '1em',
+	}
 });
 
 export class FinalSlide extends React.Component {

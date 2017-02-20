@@ -56,6 +56,7 @@ export const alpha = css(
 		textShadow: threeDText(secondary, 3),
 		whiteSpace: 'nowrap',
 		marginBottom: "calc(1.5rem + 0.1em + 0.1em)",
+		userSelect: 'none',
 		"@media screen and (min-width: 640px)": {
 			fontSize: '4em',
 			textShadow: threeDText(secondary, 10)
@@ -165,8 +166,11 @@ export const beta = css(
 export const gamma = css(
 	brandon,
 	{
-		fontSize: '2em',
-		marginBottom: '0.7em'
+		fontSize: '1.6em',
+		marginBottom: '0.7em',
+		"@media screen and (min-width: 640px)": {
+			fontSize: '2em',
+		}
 	}
 )
 
