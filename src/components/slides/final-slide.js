@@ -152,8 +152,8 @@ export class FinalSlide extends React.Component {
 									<Button
 										href={
 											this.props.isSuccessful ? 
-											makeTweetIntent(`Woo I'm a 🌮 certified REAL developer 🌮 on ${window.location.origin}`) : 
-											makeTweetIntent(`Check if you're a 🌮 certified REAL developer 🌮 on ${window.location.origin}.%0A%0AVaccinated too.`)
+											makeTweetIntent(`Woo I'm a ✨ certified REAL developer ✨ on ${window.location.origin}`) : 
+											makeTweetIntent(`Check if you're a ✨ certified REAL developer ✨ on ${window.location.origin}.%0A%0AVaccinated too.`)
 										}
 									>
 										Share on the twitters ✌️️
