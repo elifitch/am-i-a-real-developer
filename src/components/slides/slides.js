@@ -9,7 +9,9 @@ const slides = css({
 	label: "slides",
 	height: "100vh",
 	width: "100vw",
-	overflow: "hidden"
+	overflow: "hidden",
+	position: "relative",
+	zIndex: 1
 });
 
 let slides__carrier = css({
@@ -92,7 +94,7 @@ export class Slides extends Component {
 						advance={this.advance}
 						primaryContent={'Am I a Real'}
 						secondaryContent={'Developer?'}
-						copy={`Sick of folks saying that you're not engineery enough? That you're not a "real" developer? Take the quiz and find out.`}
+						copy={`Ever wonder if you're a 'real' developer? Maybe you used a tool before or wrote code that wasn't 'real' code. Take the quiz and find out.`}
 						buttonText={'Take the Quiz!'}
 					/>
 				</Slide>

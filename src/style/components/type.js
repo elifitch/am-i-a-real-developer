@@ -57,7 +57,7 @@ export const alpha = css(
 		whiteSpace: 'nowrap',
 		marginBottom: "calc(1.5rem + 0.1em + 0.1em)",
 		userSelect: 'none',
-		"@media screen and (min-width: 640px)": {
+		"@media screen and (min-width: 670px)": {
 			fontSize: '4em',
 			textShadow: threeDText(secondary, 10)
 		},

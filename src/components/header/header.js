@@ -15,7 +15,7 @@ let header = css({
 	fontSize: "0.6em",
 	opacity: 1,
 	transition: "opacity 1s",
-	'@media screen and (min-width: 640px)': {
+	'@media screen and (min-width: 670px)': {
 		fontSize: "0.3em",
 		paddingTop: "2rem",
 		paddingBottom: "2rem",

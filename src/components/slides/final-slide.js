@@ -21,6 +21,12 @@ const slide__content = css({
 	}
 });
 
+const flexVerticalCenter = css({
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center'
+})
+
 export class FinalSlide extends React.Component {
 	constructor() {
 		super();
@@ -83,7 +89,7 @@ export class FinalSlide extends React.Component {
 				className={`row align-center ${slide__content}`}
 				id="final-slide"
 			>
-				<div className="column small-12">
+				<div className={`column small-12 ${flexVerticalCenter}`}>
 					<h1 {...alphaSmall}>
 						{
 							this.props.isSuccessful ? 
