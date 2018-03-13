@@ -11,10 +11,15 @@ const pureYellow = "#ffef2c";
 const darkerYellow = "#f9df07";
 const gold = "#ffdf2c";
 
-export const primary = lighterPurple;
+// export const primary = lighterPurple;
+// export const primaryHSL = tinycolor(primary).toHsl();
+
+// export const secondary = happyGreen;
+// export const secondaryHSL = tinycolor(secondary).toHsl();
+export const primary = '#ff4cff';
 export const primaryHSL = tinycolor(primary).toHsl();
 
-export const secondary = happyGreen;
+export const secondary = '#9636f5';
 export const secondaryHSL = tinycolor(secondary).toHsl();
 
 export const lightGray = "#eeeeee";

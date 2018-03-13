@@ -87,7 +87,7 @@ export class Slides extends Component {
 		return(
 			<div { ...slides }>
 				<div { ...mergeStyles(slides__carrier, slides__translation) }>
-				<Slide
+				{/* <Slide
 					key={0}
 				>
 					<HighlightSlide
@@ -99,15 +99,15 @@ export class Slides extends Component {
 					/>
 				</Slide>
 
-				{ this.generateQuestions() }
+				{ this.generateQuestions() } */}
 
 				<Slide
 					key={"final"}
 					contentSlide={true}
 				>	
 					<FinalSlide
-						isSuccessful={this.state.yeps > 0}
-						isReady={this.state.slide === questions.length + 1}
+						isSuccessful={true}
+						isReady={true}
 						onSuccess={this.props.onSuccess}
 					/>
 				</Slide>

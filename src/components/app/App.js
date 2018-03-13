@@ -13,7 +13,7 @@ const vignette = css({
 	height: "100vh",
 	top: 0,
 	left: 0,
-	background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.15) 100%)",
+	background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%)",
 	pointerEvents: "none"
 });
 
@@ -34,6 +34,7 @@ class App extends Component {
 		})
 	}
 	startConfetti() {
+		console.log('hi')
 		this.setState({
 			fireConfetti: true
 		})
